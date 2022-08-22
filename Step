@@ -61,7 +61,7 @@ If E<0
 Then
 If E>0
 WriteLn ('E='; E);
-End
+End.
 
 Enter.
 Start of programm:
