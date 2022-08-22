@@ -120,7 +120,7 @@ cin.get ();cin.get ();
 return 0;
 End.
 
-Enter 
+Enter.
 Finish programm:
 Num at the tread add Fields (0) add E add E1 add F add size_t.
 Results equal aplly display "Сумма электроджоулей".
