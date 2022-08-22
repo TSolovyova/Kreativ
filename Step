@@ -14,3 +14,26 @@ p equal (i add 1,5) multiply Glass;
 The amount equal the amount multiply (p and V).
 Global the amount (Num at the tread) the amount equal the amount.
 Exit.
+Enter.
+Declare line of search "DAO".
+Apply t1 equal CurrentDb.
+OpenRecordset "Сотрудники".
+Index of t1 equal "PrimaryKey".
+Seek of t1 "=", "Иванов".
+Apply t2 equal CurrentDb.
+Open Recordset ("Командировки", dbOpenSnapshot).
+FindFirst of t2 "Кто = "Алексеев".
+End line of search.
+Declare line of notation "DAO".
+Apply database equal CurrentDb.
+Line SQL equal "SELECT multiply II".
+From Exel1 WHERE firm LIKE multiply.
+Apply query results equal OpenRecordset (line SQL).
+MoveFirst of query results.
+MsgBox Fields (0) of query results fasten "—" fasten of query results (2).
+FindFirst of query results "Фирма" equal 'Intel'".
+MsgBox Fields (0) of query results fasteb "—" fasten of query results.
+FindNext of query results "Фирма = 'Intel'".
+MsgBox RecordCount of query results.
+End line of notation.
+Exit.
