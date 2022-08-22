@@ -30,7 +30,7 @@ Line SQL equal "SELECT multiply II".
 From Exel1 WHERE firm LIKE multiply.
 Apply query results equal OpenRecordset (line SQL).
 MoveFirst of query results.
-MsgBox Fields (0) of query results fasten "—" fasten of query results (2).
+MsgBox Fields (0) of query results fasten off"—" fasten of query results (2).
 FindFirst of query results "Фирма" equal 'Intel'".
 MsgBox Fields (0) of query results fasteb "—" fasten of query results.
 FindNext of query results "Фирма = 'Intel'".
@@ -65,17 +65,17 @@ End.
 
 Enter.
 Start of programm:
-Declare integer number m, v, g, h, E
-Function Nod (m, v: Integer; var g, h, E: Integer);
+Declare integer number m, v, g, h, E1
+Function Nod (m, v: Integer; var g, h, E1: Integer);
 Start
 While m<>V then g:=g-h
-Else E:=mV^2+mgh
-Nod:=E
+Else E1:=mV^2+mgh
+Nod:=E1
 End;
 Start 
 White ("Введите значения");
 Read (m, V, g, h);
-E:= mV^2+mgh
+E1:= mV^2+mgh
 End.
 
 Enter.
@@ -120,6 +120,10 @@ cin.get ();cin.get ();
 return 0;
 End.
 
-
+Enter 
+Finish programm:
+Num at the tread add Fields (0) add E add E1 add F add size_t.
+Results equal aplly display "Сумма электроджоулей".
+Exit.
 
 
