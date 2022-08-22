@@ -39,7 +39,7 @@ End line of notation.
 
 Enter.
 Declare real numbers in V,T,n,E;
-Start of programm
+Start of programm:
 Apply ("Введите значение");
 Apply ("V"); ReadLn (a);
 Apply ("T"); ReadLn (T);
@@ -79,7 +79,7 @@ E:= mV^2+mgh
 End.
 
 Enter.
-Start of programms:
+Start of programm:
 def replaceAll (k, q1,q2,r):
 lenK=len(K);
 res = " "
@@ -103,7 +103,7 @@ return res
 End.
 
 Enter.
-Start of programm
+Start of programm:
 Void kill (int***,size_t);
 Declare main ()
 const size_t row=1; col=96648;
