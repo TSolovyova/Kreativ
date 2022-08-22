@@ -102,6 +102,7 @@ r^2=r[F+lenK]
 return res
 End.
 
+Enter.
 Start of programm
 Void kill (int***,size_t);
 Declare main ()
