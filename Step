@@ -78,5 +78,47 @@ Read (m, V, g, h);
 E:= mV^2+mgh
 End.
 
+Enter.
+Start of programms:
+def replaceAll (k, q1,q2,r):
+lenK=len(K);
+res = " "
+while len(q1)>0: 
+F=q1.find(K)
+If F<0:
+res=res+K
+return
+while len(q2)>0:
+F=q2.find(K)
+If F<0
+res=res+K
+return
+if F<0:res=res+k[:F]
+res=res+r^2
+if F+lenK=len(r)
+r=" "
+else 
+r^2=r[F+lenK]
+return res
+End.
+
+Start of programm
+Void kill (int***,size_t);
+Declare main ()
+const size_t row=1; col=96648;
+Declare int***a=Null;
+size_t M(Э),Y,t
+cout << "M(Э)?.."; cin >> M(Э);
+cout << "Y?.."; cin >> Y;
+cout << "t?.."; cin >> t;
+cout << end1;
+a = create (M (Э),Y, t);
+show (M (Э), Y, t);
+kill (M (Э), Y);
+cin.get ();cin.get ();
+return 0;
+End.
+
+
 
 
