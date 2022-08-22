@@ -13,7 +13,7 @@ During (Declare i equal Num at the tread; i less streaming Glass; i equal i add 
 p equal (i add 1,5) multiply Glass;
 The amount equal the amount multiply (p and V).
 Global the amount (Num at the tread) the amount equal the amount.
-Exit.
+
 Enter.
 Declare line of search "DAO".
 Apply t1 equal CurrentDb.
@@ -36,7 +36,7 @@ MsgBox Fields (0) of query results fasteb "—" fasten of query results.
 FindNext of query results "Фирма = 'Intel'".
 MsgBox RecordCount of query results.
 End line of notation.
-Exit.
+
 Enter.
 Declare real numbers in V,T,n,E;
 Start of programm
@@ -62,6 +62,19 @@ Then
 If E>0
 WriteLn ('E='; E);
 End
-Exit.
+Start of programm:
+Declare integer number m, v, g, h, E
+Function Nod (m, v: Integer; var g, h, E: Integer);
+Start
+While m<>V then g:=g-h
+Else E:=mV^2+mgh
+Nod:=E
+End;
+Start 
+White ("Введите значения");
+Read (m, V, g, h);
+E:= mV^2+mgh
+End.
+
 
 
