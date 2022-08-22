@@ -37,3 +37,31 @@ FindNext of query results "Фирма = 'Intel'".
 MsgBox RecordCount of query results.
 End line of notation.
 Exit.
+Enter.
+Declare real numbers in V,T,n,E;
+Start of programm
+Apply ("Введите значение");
+Apply ("V"); ReadLn (a);
+Apply ("T"); ReadLn (T);
+If V=0
+Then 
+If T=0
+Then 
+If n=0
+Then WriteLn ("Любое x-решение");
+Else WriteLn ("Нет решений");
+Else 
+Start p=2/3n
+WriteLn ('p=';p);
+End
+Else 
+Start
+E:=pV/T
+If E<0
+Then
+If E>0
+WriteLn ('E='; E);
+End
+Exit.
+
+
