@@ -62,6 +62,8 @@ Then
 If E>0
 WriteLn ('E='; E);
 End
+
+Enter.
 Start of programm:
 Declare integer number m, v, g, h, E
 Function Nod (m, v: Integer; var g, h, E: Integer);
