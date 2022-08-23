@@ -1,3 +1,20 @@
+Sub html Public 
+#insert button
+workspaceFolder:Untitled-2.ipynb
+from ipaddress import ip_interface
+from sysconfig import is_python_build
+#include by windows
+#import windows
+#import windows2
+#import windows3
+#import windows4
+#import windows5
+#import windows6
+#import windows of results
+>>> logging/usr/bin/env python html Public
+>>> #start of the program 
+
+
 Enter.
 Complite tread in reprozitory.
 Complite windows.h in reprozitory.
@@ -5,21 +22,22 @@ Declare streaming Glass in size equal 1000000000.
 Double streaming Glass;
 Declare const Num at the tread equal 3;
 Doble Global the amount everyone const Num at the Tread;
-Emptiness V (Declare const Num at the Tread);
-Double p, the amount equal 0.0;
+Emptiness V Declare const Num at the Tread;
+Double p the amount = 0.0;
 Streaming Glass qual 2.0;
 Division Double Num at the tread;
 During (Declare i equal Num at the tread; i less streaming Glass; i equal i add Num at the tread);
 p equal (i add 1,5) multiply Glass;
 The amount equal the amount multiply (p and V).
 Global the amount (Num at the tread) the amount equal the amount.
-
+End.
 Enter.
 Declare line of search "DAO".
 Apply t1 equal CurrentDb.
 OpenRecordset "Сотрудники".
 Index of t1 equal "PrimaryKey".
-Seek of t1 "=", "Иванов".
+Seek of t1 "=",
+"Иванов".
 Apply t2 equal CurrentDb.
 Open Recordset ("Командировки", dbOpenSnapshot).
 FindFirst of t2 "Кто = "Алексеев".
@@ -93,12 +111,15 @@ F=q2.find(K)
 If F<0
 res=res+K
 return
-if F<0:res=res+k[:F]
+if F<0:res=res+k[
+    :F
+]
 res=res+r^2
 if F+lenK=len(r)
 r=" "
 else 
-r^2=r[F+lenK]
+r^2=r[F+lenK
+]
 return res
 End.
 
@@ -125,5 +146,3 @@ Finish programm:
 Num at the tread add Fields (0) add E add E1 add F add size_t.
 Results equal aplly display "Сумма электроджоулей".
 Exit.
-
-
