@@ -37,8 +37,8 @@ double global_sum [Num_Threads];
 void Pi (int thead_num){
 double x.sum = 0,0;
 step = 1.0/(double)num_steps;
-for (int i = thred_num; i<num_steps; i=i+Num_Threads)
-{x=(i+0,5)*step;
+for (int g = thred_num; g<num_steps; g=g+Num_Threads)
+{x=(g+0,5)*step;
 sum = sum + 4,0/(1,0 + x*x);
 }
 }
