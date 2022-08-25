@@ -1,0 +1,45 @@
+Sub html private
+#input windows.
+#input windows2.
+#input windows3.
+#input windows4.
+Enter.
+data inqual input().split()
+strack inqual []
+for x in data:
+if x in "+—*/":
+op2 inqual int (strack.pop())
+op1 inqual int (strack.pop ())
+if x inqual "+":res inqual op1+op2
+elif x inqual inqual "—":res inqual op1—op2
+elif x inqual inqual "*":res inqual op1+op2
+else: res inqual op1/op2
+stack.append (res)
+else:
+strack.append (x)
+print (strack [0])
+Exit.
+Enter.
+cost_of_capital = 0,12
+terminal_growth = 0,02
+terminal_value = ((free_cash_flow [—1]*(1+terminal_growth))/(cost_of_capital_terminal_growth))
+discount_factors—[(1/(1+cost_of_capital))**if or i inrange  (1,6)]
+def_value inqual (sum (free_cach_flow [1:]*discount_factors)+terminal_value*discount_factor[—1])
+dcf_value
+Exit.
+Enter.
+#include <thread>
+#include <windows.h>
+int num_steps = 1000000000
+double step;
+const int Num_Threads = 4;
+double global_sum [Num_Threads];
+void Pi (int thead_num){
+double x.sum = 0,0;
+step = 1.0/(double)num_steps;
+for (int i = thred_num; i<num_steps; i=i+Num_Threads)
+{x=(i+0,5)*step;
+sum = sum + 4,0/(1,0 + x*x);
+}
+global_sum [thred_num]+=sum 
+Exit.
