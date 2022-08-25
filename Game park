@@ -41,5 +41,6 @@ for (int i = thred_num; i<num_steps; i=i+Num_Threads)
 {x=(i+0,5)*step;
 sum = sum + 4,0/(1,0 + x*x);
 }
+}
 global_sum [thred_num]+=sum 
 Exit.
