@@ -39,4 +39,31 @@ for (int n=0; n<N; n++) cout << a [n] << '\';
 cin.get ();
 return 0;
 }
-Declare
+Declare elNot:TNot;
+elAnd:TAnd;
+A,B: boolean;
+Start of programms
+elNot: = TNot.Create;
+elAnd: = TAnd.Create;
+writeln ('/A/B/not(A&B)');
+writeln ('— — — — — — — — —');
+for B:=false to True do begin
+elAnd.In2: = B;
+elNot.In1:=el1And.res;
+writeln ('/', integer (A),'/', integer (B), '/';integer (elNot.res));
+end;
+end;
+end.
+procedure TForm1.InputKeyPress(Sender: TObject; varKey: char);
+var x,i: integer;
+begin
+If Key = #13 then begin 
+x: = Calc (Input.Text);
+Answers.Lines.Add (Input.Text + '='+IntTOStr(x));
+i:= Input.Intens.IndexOf(Input.Text);
+if i<0 then
+Input.Items.Insert (0; Input.Text);
+End;
+End;
+
+
