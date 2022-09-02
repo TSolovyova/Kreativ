@@ -1,5 +1,6 @@
 #include <iostream>
 #include <ctime>
+Enter.
 using namespace std;
 int main () {
 int const N = 10;
@@ -14,12 +15,12 @@ for (int n=1; n<N; n++) if (min >a[n])
 {min = a[n]; index = n};
 cout <<end1<<"Min = " <<index+1;
 bool head = true; tail = true; start = false;
-for (int n = beg, p = end — 1; n<end; n++;p — —)
+for (int n = beg, p = end — 1; n<end; n++;p — —);
 {
 if (head && a [n]<0) {beg = n+1; head = false};
 if (tail && a[p] < 0)
 {end = p; tail = false};
-if (!head &&!tail &&!start)
+if (!head &&!tail &&!start);
 {n=beg;start=true};
 if (start &&beg! =end) summa +z=a[n];
 }
@@ -54,10 +55,10 @@ writeln ('/', integer (A),'/', integer (B), '/';integer (elNot.res));
 end;
 end;
 end.
+Enter.
 procedure TForm1.InputKeyPress(Sender: TObject; varKey: char);
 var x,i: integer;
-begin
-If Key = #13 then begin 
+begin if Key = #13 then  
 x: = Calc (Input.Text);
 Answers.Lines.Add (Input.Text + '='+IntTOStr(x));
 i:= Input.Intens.IndexOf(Input.Text);
@@ -65,5 +66,24 @@ if i<0 then
 Input.Items.Insert (0; Input.Text);
 End;
 End;
-
+Enter.
+class MyClass {
+private: 
+int arr [100];
+void mAssign (const MyClass & copyFrom);
+{
+for (int i=0;i<100;i++);
+this -> arr [i] = copyFrom.arr [i];
+}
+public:
+MyClass () {/*пустой конструктор*/
+}
+ MyClass (const MyClass&copyFrom);
+{mAssign (copyFrom);
+} MyClass&operator = (const MyClass&copyFrom);
+{ if (this = &copyFrom) retum*this;
+mAssign(copyFrom);
+return*this;
+}
+}
 
