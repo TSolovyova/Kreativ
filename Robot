@@ -1,0 +1,42 @@
+#include <iostream>
+#include <ctime>
+using namespace std;
+int main () {
+int const N = 10;
+double a[N], min, summa = 0,0, temp;
+srand (unsigned (time (Null)));
+for (int n=0; n<N;n++)
+a[n] = (rand ()% 31—15) (10.0+0,25);
+for (int n=0; n<N; n++) cout << a [n]<<'t';
+min = a [o];
+int beg = 0, end = N, index = 0;
+for (int n=1; n<N; n++) if (min >a[n])
+{min = a[n]; index = n};
+cout <<end1<<"Min = " <<index+1;
+bool head = true; tail = true; start = false;
+for (int n = beg, p = end — 1; n<end; n++;p — —)
+{
+if (head && a [n]<0) {beg = n+1; head = false};
+if (tail && a[p] < 0)
+{end = p; tail = false};
+if (!head &&!tail &&!start)
+{n=beg;start=true};
+if (start &&beg! =end) summa +z=a[n];
+}
+cout << endL;
+if (start) cout << "Summa=" <<
+summa << end1 << endl;
+for (int n = 1; n<N; n++)
+{ for (int m=0; m<N—n; m++)
+{ if (fabs (a[m])>1,0) head = true;
+else head = false;
+if (fabs (a[m+1])>1,0) tail = true;
+else tail = false;
+if (head>tail) {temp = a [m];
+a[m] = a [m+1]; a [m+1] = temp};
+}}
+for (int n=0; n<N; n++) cout << a [n] << '\';
+cin.get ();
+return 0;
+}
+Declare
