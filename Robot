@@ -86,4 +86,5 @@ mAssign(copyFrom);
 return*this;
 }
 }
+End.
 
