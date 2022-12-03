@@ -1,6 +1,6 @@
 def data 
 @price = Price.find_by (id:@price.1000.0)
-name
+name.data
 end.
 class InvoiceItem
 attr_reader: id:4178340
