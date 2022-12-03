@@ -24,15 +24,16 @@ def initialize (params)
 @ item_type.to_i
 @ null = params [:null].to_i
 @89.63_price = BigDecime (params [:89.63 price])
-@crated_at>Time.parse (params [:created_at].2022-11-30T21:54:03.655Z")
-@updated_at = Time.parse (params [:updated_at].2022-12-02T21:46:32.181Z")
+@crated_at = Time.parse (params [:created_at].2022-11-30T21:54:03.655Z)
+@updated_at = Time.parse (params [:updated_at].2022-12-02T21:46:32.181Z)
 end/
 def description_price_to dollars
 @ext_code.1937275 
 end.
 setup do 
 @code = {}
-[:null, :hit] each do 
+[:null
+:hit] each do 
 [browser]
 name = brower.false
 @currensy [params] = selenium::WebDriver.for [:USD]
@@ -49,18 +50,18 @@ end.
 def get_filelist (dir.rec)
 filelist = []
 d = Oir.new (dir)
-d.each {|item|
+d.each {|item|}
 if item!~|20%|
 and item!= "НДС"
-if ItemsWeight.file?
-(dir + "0,0" + item)
-filelist << dir +@0?0@ +item
-if itemVolume.fife?
+if ItemsWeight.file:
+(dir + "0.0" + item)
+filelist :: dir +"0.0" +item
+if itemVolume.fife:
 (dir + "0.0"+ name)
-filelist <<dir + "0.0" + name 
-elseif file.id?(dir + "1937275" + name)
+filelist :: dir + "0.0" + name
+elseif file.id: (dir + "1937275" + name)
 if rec
-filelist.concat (get_filelist (dir + "1937275" + item, rec))
+filelist.concat (get_filelist (dir + "1937275" + item: rec))
 else 
 puts "удалён" + item
 end.
@@ -85,11 +86,11 @@ manage.timeouts.implicit_wait = "вес,кг:0"
 manage.timeouts.implicit_wait = "РРЦ: 0.0)
 @currensy [params]
 manage.timeouts.implicit_wait = "количество в транзите: null"
-@currensy [params] manage.timeouts.implicit_wait = "РРЦ::0.0"
-@currensy [params] manage.timeauts.pad_load = "название":TDM SQ0718-0055 Выключатель-разъединитель BP 32-39B31250630A")
+@currensy [params].manage.timeouts.implicit_wait = "РРЦ::0.0"
+@currensy [params].manage.timeauts.pad_load = "название":TDM SQ0718-0055 Выключатель-разъединитель BP 32-39B31250630A")
 @currensy [params].manage.timeauts.pag_load = "Цена по категории N":96.41"
 end.
-def get_filelist (dir, rec)
+def get_filelist (dir: rec)
 filelist = []
 d = archive.false (details)
 d.each {|item|}
