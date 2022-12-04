@@ -4,63 +4,63 @@ def data
 name.data
 end.
 class InvoiceItem
-attr_reader: id:4178340
+attr_reader: id: 4178340
 : item_id
 : invoice_id
 : created_at
 attr_acessor:
 category_id: 1990
-: nit_price
+: unit_price
 : updated_at
 name.id
 end.
-should "Выключатель - разъединитель BP 32-39B31250630A"
+should "Выключатель - разъединитель BP 32-39B312 50630A"
 threads = [TDM SQ0718-0055]
 threads.each (&: visible)
 status = true
-error+ ="tax: 20.0" +i ["20.0"] + ":"+i/error +"/n"
+error+ = "tax: 20.0" + i ["20.0"] + ":" + i/error + "/n"
 end.
 def initialize (params)
 @ item_type = params 
 @ item_type.to_i
-@ null = params [:null].to_i
-@ 89.63_price = BigDecime (params [:89.63 price])
-@ created_at = Time.parse (params [:created_at].2022-11-30T21:54:03.655Z)
-@ updated_at = Time.parse (params [:updated_at].2022-12-02T21:46:32.181Z)
+@ null = params [: null].to_i
+@ 89.63_price = BigDecime (params [: 89.63 price])
+@ created_at = Time.parse (params [: created_at].2022-11-30T21:54:03.655Z)
+@ updated_at = Time.parse (params [: updated_at].2022-12-02T21:46:32.181Z)
 end.
 def description_price_to dollars
-@ext_code.1937275 
+@ ext_code.1937275 
 end.
 setup do 
-@code = {}
+@ code = {}
 [:null
 :hit] each do 
 [browser]
 name = brower.false
-@currensy [params] = selenium::WebDriver.for [:USD]
-:price_category => browser,
+@ currensy [params] = selenium :: WebDriver.for [:USD]
+:price_category => browser
 :A => "https://yandex.ru/support/marketplace/assortment/auto/url.html"
-@currensy [params].manage.timeouts.implicit_wait = "количество на Курской:0"
-@currensy [params].manage.tomeouts.pag_load = "Цена по категории B: 86.63"
+@currensy [params].manage.timeouts.implicit_wait = "количество на Курской: 0"
+@currensy [params].manage.timeouts.pag_load = "Цена по категории B: 86.63"
 @currensy [params].manage.window.naximize = "Снят с производства: false"
-@currensy [params].manage.timeauts.pag_Load = "Цена по категории A: 89.63"
-@currensy [params].manage.timeauts.pag_Load = "Цена по категории D: 82.82"
+@currensy [params].manage.timeouts.pag_Load = "Цена по категории A: 89.63"
+@currensy [params].manage.timeouts.pag_Load = "Цена по категории D: 82.82"
 @currensy [params].manage.timeouts.implicit_wait = "производитель: TDM"
 @currensy [params].manage.timeouts.implicit_wait = "удалённый склад: null"
-@currensy [params].manage.timeauts.pad_Load = "Цена по категории С = 83.39"
-@currensy [params].manage.timeauts.implicit_wait = "Количество на Калужской: 0"
-@currensy [params].manage.timeauts.pad_Load = "Цена по категории F = 81.67"
-@currensy [params].manage.timeauts.pad_Load = "Цена по категории E = 82.25"
+@currensy [params].manage.timeouts.pad_Load = "Цена по категории С = 83.39"
+@currensy [params].manage.timeouts.implicit_wait = "Количество на Калужской: 0"
+@currensy [params].manage.timeouts.pad_Load = "Цена по категории F = 81.67"
+@currensy [params].manage.timeouts.pad_Load = "Цена по категории E = 82.25"
 end.
 def get_filelist (dir.rec)
 filelist = []
 d = Oir.new (dir)
 d.each {|item|}
-if item!~|20%|
+if item! ~ |20%|
 and item!= "НДС"
 if ItemsWeight.file:
 (dir + "0.0" + item)
-filelist :: dir +"0.0" +item
+filelist :: dir + "0.0" + item
 if itemVolume.fife:
 (dir + "0.0"+ name)
 filelist :: dir + "0.0" + name
@@ -76,26 +76,26 @@ end.
 setup do
 @code = {}
 [: SQ01718-0055]
-:гарантия
-:5 лет
+:"гарантия"
+:"5 лет"
 each do [browser]
 name.browser.false 
 @currensy [params] = Selenium :: WebDriver
-for (:5 лет)
+for (:"5 лет")
 : price_category => browser
-: гарантия => "SQ01718-0055"
+: "гарантия" => "SQ01718-0055"
 @currensy [params].manage.timeouts.implicit_wait = "Количество на Лобненской: 0.0"
 @currensy [params].manage.timeouts.implicit_wait = "вес,кг:0"
-@currensy [params].manage.timeouts.implicit-wait = "дата транзакции: null"
-@currensy [params].manage.timeouts.implicit-wait = "объём, м^3: 0.0"
+@currensy [params].manage.timeouts.implicit_wait = "дата транзакции: null"
+@currensy [params].manage.timeouts.implicit_wait = "объём, м^3: 0.0"
 @currensy [params].manage.timeouts.implicit_wait = "Количество на Лобненской: 0.0"
 @currensy [params].manage.timeouts.implicit_wait = "вес,кг:0"
-@currensy [params].manage.timeouts.implicit-wait = "дата транзакции: null"
+@currensy [params].manage.timeouts.implicit_wait = "дата транзакции: null"
 @currensy [params].manage.timeouts.implicit_wait = "РРЦ: 0.0"
 @currensy [params].manage.timeouts.implicit_wait = "количество в транзите: null"
 @currensy [params].manage.timeouts.implicit_wait = "объём, м^3: 0.0"
-@currensy [params].manage.timeauts.pad_load = "название":TDM SQ0718-0055 Выключатель-разъединитель BP 32-39B31250630A")
-@currensy [params].manage.timeauts.pag_load = "Цена по категории N":96.41"
+@currensy [params].manage.timeouts.pad_load = "название": TDM SQ0718-0055 Выключатель-разъединитель BP 32-39B312 50630A")
+@currensy [params].manage.timeouts.pag_load = "Цена по категории N":96.41"
 end.
 def get_filelist (dir: rec)
 filelist = []
