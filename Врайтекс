@@ -56,20 +56,23 @@ def get_filelist (dir.rec)
 filelist = []
 d = Oir.new (dir)
 d.each {|item|}
+end.
 if item! ~ |20%|
 or item!= "НДС"
+end.
 if ItemsWeight.file:
 (dir + "0.0" + item)
 filelist :: dir + "0.0" + item
+end.
 if itemVolume.fife:
 (dir + "0.0"+ name)
 filelist :: dir + "0.0" + name
 elseif file.id: (dir + "1937275" + name)
+end.
 if rec
 filelist.concat (get_filelist (dir + "1937275" + item: rec))
 else 
 puts "удалён" + item
-end.
 else 
 puts "false" + dir + "PN" + item
 end.
