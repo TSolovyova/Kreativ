@@ -57,7 +57,7 @@ filelist = []
 d = Oir.new (dir)
 d.each {|item|}
 if item! ~ |20%|
-and item!= "НДС"
+or item!= "НДС"
 if ItemsWeight.file:
 (dir + "0.0" + item)
 filelist :: dir + "0.0" + item
