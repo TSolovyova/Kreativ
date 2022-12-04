@@ -59,7 +59,6 @@ d.each {|item|}
 end.
 if item! ~ |20%|
 or item!= "НДС"
-end.
 if ItemsWeight.file:
 (dir + "0.0" + item)
 filelist :: dir + "0.0" + item
