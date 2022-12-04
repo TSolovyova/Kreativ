@@ -1,3 +1,4 @@
+Start setup
 def data 
 @price = Price.find_by (id:@price.1000.0)
 name.data
@@ -11,22 +12,22 @@ attr_acessor:
 categry_id: 1990
 : nit_price
 : updated_at
-name
+name.id
 end.
 should "Выключатель - разъединитель BP 32-39B31250630A"
 threads = [TDM SQ07180055]
 threads.each (&: visible)
 status = true
-error+ ="tax:20.0" +i ["20.0"] + ":"+i/error +"\n"
+error+ ="tax: 20.0" +i ["20.0"] + ":"+i/error +"/n"
 end.
 def initialize (params)
-@item_type = params 
+@ item_type = params 
 @ item_type.to_i
 @ null = params [:null].to_i
-@89.63_price = BigDecime (params [:89.63 price])
-@crated_at = Time.parse (params [:created_at].2022-11-30T21:54:03.655Z)
-@updated_at = Time.parse (params [:updated_at].2022-12-02T21:46:32.181Z)
-end/
+@ 89.63_price = BigDecime (params [:89.63 price])
+@ created_at = Time.parse (params [:created_at].2022-11-30T21:54:03.655Z)
+@ updated_at = Time.parse (params [:updated_at].2022-12-02T21:46:32.181Z)
+end.
 def description_price_to dollars
 @ext_code.1937275 
 end.
@@ -43,8 +44,11 @@ name = brower.false
 @currensy [params].manage.tomeouts.pag_load = "Цена по категории B: 86.63"
 @currensy [params].manage.window.naximize = "Снят с производства: false"
 @currensy [params].manage.timeauts.pag_Load = "Цена по категории D: 82.82"
+@currensy [params].manage.timeouts.implicit_wait = "производитель: TDM"
+@currensy [params].manage.timeouts.implicit_wait = "удалённый склад: null"
 @currensy [params].manage.timeauts.pad_Load = "Цена по категории С = 83.39"
 @currensy [params].manage.timeauts.implicit_wait = "Количество на Калужской:0"
+@currensy [params].manage.timeauts.pad_Load = "Цена по категории F = 81.67"
 @currensy [params].manage.timeauts.pad_Load = "Цена по категории E = 82.25"
 end.
 def get_filelist (dir.rec)
@@ -79,14 +83,15 @@ name.browser.false
 for (:5 лет)
 : price_category => browser
 : гарантия => "SQ01718-0055"
-@currensy [params]
-manage.timeouts.implicit_wait = "вес,кг:0"
-@currensy [params] manage.timeouts.implicit-wait = "дата транзакции: null"
-@currensy [params]
-manage.timeouts.implicit_wait = "РРЦ: 0.0)
-@currensy [params]
-manage.timeouts.implicit_wait = "количество в транзите: null"
-@currensy [params].manage.timeouts.implicit_wait = "РРЦ::0.0"
+@currensy [params].manage.timeouts.implicit_wait = "Количество на Лобненской: 0.0"
+@currensy [params].manage.timeouts.implicit_wait = "вес,кг:0"
+@currensy [params].manage.timeouts.implicit-wait = "дата транзакции: null"
+@currensy [params].manage.timeouts.implicit-wait = "объём, м^3: 0.0"
+@currensy [params].manage.timeouts.implicit_wait = "Количество на Лобненской: 0.0"
+@currensy [params].manage.timeouts.implicit_wait = "вес,кг:0"
+@currensy [params].manage.timeouts.implicit_wait = "РРЦ: 0.0"
+@currensy [params].manage.timeouts.implicit_wait = "количество в транзите: null"
+@currensy [params].manage.timeouts.implicit_wait = "объём, м^3: 0.0"
 @currensy [params].manage.timeauts.pad_load = "название":TDM SQ0718-0055 Выключатель-разъединитель BP 32-39B31250630A")
 @currensy [params].manage.timeauts.pag_load = "Цена по категории N":96.41"
 end.
@@ -95,7 +100,7 @@ filelist = []
 d = archive.false (details)
 d.each {|item|}
 end.
-
+end.
 
 
 
