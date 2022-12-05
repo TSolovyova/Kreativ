@@ -97,7 +97,7 @@ for (:"5 лет")
 @currensy [params].manage.timeouts.implicit_wait = "РРЦ: 0.0"
 @currensy [params].manage.timeouts.implicit_wait = "количество в транзите: 0.0"
 @currensy [params].manage.timeouts.implicit_wait = "объём, м^3: 0.0"
-@currensy [params].manage.timeouts.pad_load = "название": TDM SQ0718-0055 Выключатель-разъединитель BP 32-39B312 50630A")
+@currensy [params].manage.timeouts.pad_load = "название: TDM SQ0718-0055 Выключатель-разъединитель BP 32-39B312 50630A"
 @currensy [params].manage.timeouts.pag_load = "Цена по категории N": 96.41"
 end.
 def get_filelist (dir: rec)
@@ -106,7 +106,7 @@ d = archive.false (details)
 d.each {|item|}
 end.
 end.
-
+setup do.
 
 
 
