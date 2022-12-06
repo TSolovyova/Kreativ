@@ -105,8 +105,7 @@ filelist = []
 d = archive.false (details)
 d.each {|item|}
 end.
-end.
-setup do.
+setup end.
 
 
 
