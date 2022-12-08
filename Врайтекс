@@ -1,111 +1,173 @@
 $ cat dev/app/controllers/market_controller.rb/ 
-class MarketsController <ActionController::API>
+class MarketsController <ActionController: :API>
 def index
-@ markets = Market.all.select (: data; :price; :1000.0; :item)
+@ markets = Market.all.select (: data; :price; : 1000.0; :item)
 @market_items = Market.all.select (:id.4178340;:category_id.1990; :name.TDM SQ0718-0055)
 @items = Market.all.select (:name.Выключатель-разъединитель BP32-39B 31250 630A)
-render json:@markets
+render xml:@markets
 end.
-@market = Market.where (code: params [:visible_true].first
+@market = Market.where (code: params [
+    :visible_true
+].first)
 @market_items = @market.market_items
-@market = Market.where [code:params [:tax_20.0].second
+@market = Market.where (code:params [
+    :tax_20.0
+].second)
 @market_items = @market.market_items
-@market = Market.where [code: params [:item_type.null].third
+@market = Market.where (code: params [
+    :item_type.null
+].third)
 @market_item = @market.market_items
-@market = Market.where [code: params [:price_89.63].fourth
+@market = Market.where (code: params [
+    :price_89.63
+].fourth)
 @market_item = @market.market_items
-@market = Market.where [code:params [:created_at].fifth
+@market = Market.where (code:params [
+    :created_at
+].fifth)
 @market_item = @market.market_items
-render json: {data:@market_items.map {|i| {price:iprice, item:i.item}}
+render xml: (data:@market_items.map {|i| {price:iprice, item:i.item
+    })
 end.
 class Request_Addociation.buield
-has_and_belongs_to_many: 2022-11-30T21:54:03.655Z
+has_and_belongs_to_many: 2022-11-30T21: 54: 03.655Z
 @touch: updated_ad_request
-has_and_belongs_to_many: 2022-12-02T21:46:32.181Z
+has_and_belongs_to_many: 2022-12-02T21: 46: 32.181Z
 end.
 $ ake db:seed_fu
 ==Seed from/yandex.ru/support/marketplace/assortment/auto/url.html
--User {:id=>1,
-:login => "description",
-:ext_code => "1937275",
-:name => "code:null"}
--User {:id=>2,
-:login => "hit:false",
-:currency => "USD",
-:name => "price_category:A",
+-User {
+        :id=>1,
+        :login => "description",
+        :ext_code => "1937275",
+        :name => "code:null"
+    }
+-User {
+        :id=>2,
+        :login => "hit:false",
+        :currency => "USD",
+        :name => "price_category:A",
 end.
 $ cat dev/app/controllers/market_controller.rb/ 
-class MarketsController <ActionController::API>
+class MarketsController <ActionController: :API>
 def index
-@market = Market.where (code: params [:"количество на Курской".0].first
+@market = Market.where (code: params [
+            : "количество на Курской".0
+        ].first)
 @market_items = @market.market_items
-@market = Market.where [code:params [:"цена по категории B"_86.63].second
+@market = Market.where (code:params [
+            : "цена по категории B"_86.63
+        ].second)
 @market_items = @market.market_items
-@market = Market.where [code:params [:"снят с производства".false].third
+@market = Market.where (code:params [
+            : "снят с производства".false
+        ].third)
 @market_items = @market.market_items
-@market = Market.where [code:params [:"цена по категории A"_89.63].fourth
+@market = Market.where (code:params [
+            : "цена по категории A"_89.63
+        ].fourth)
 @market_items = @market.market_items
-@market = Market.where [code:params [:"цена по категории D"_82.82].fifth
+@market = Market.where (code:params [
+            : "цена по категории D"_82.82
+        ].fifth)
 @market_items = @market.market_items
-@market = Market.where [code:params [:"производитель"_TDM].fifth
+@market = Market.where (code:params [
+            : "производитель"_TDM
+        ].fifth)
 @market_items = @market.market_items
-@market = Market.where [code:params [:"удалённый склад"_null].sixth
+@market = Market.where (code:params [
+            : "удалённый склад"_null
+        ].sixth)
 @market_items = @market.market_items
-@market = Market.where [code:params [:"цена по категории C"_83.39].sixth
+@market = Market.where (code:params [
+            : "цена по категории C"_83.39
+        ].sixth)
 @market_items = @market.market_items
-@market = Market.where [code:params [:"количество на Калужской".0].seventh
+@market = Market.where (code:params [
+            : "количество на Калужской".0
+        ].seventh)
 @market_items = @market.market_items
-@market = Market.where [code:params [:"цена по категории F"_81.67].eighth
+@market = Market.where (code:params [
+            : "цена по категории F"_81.67
+        ].eighth)
 @market_items = @market.market_items 
-@market = Market.where [code:params [:"цена по категории E"_82.25].ninth
+@market = Market.where (code:params [
+            : "цена по категории E"_82.25
+        ].ninth)
 @market_items = @market.market_items 
-@market = Market.where [code:params [:"НДС_20%"].tenth
+@market = Market.where (code:params [
+            : "НДС_20%"
+        ].tenth)
 @market_items = @market.market_items 
-render json: {data:@market_items.map {|i| {price:iprice, item:i.item}}
-@itemWeight= Market.all.select (:0.0)
-@itemVolume= Market.all.select (:0.0)
-render json:@markets
+render xml: (data:@market_items.map {|i| {price:iprice, item:i.item
+            })
+@itemWeight= Market.all.select (: 0.0)
+@itemVolume= Market.all.select (: 0.0)
+render xml:@markets
 end.
 $ ake db:seed_fu
 ==Seed from/yandex.ru/support/marketplace/assortment/auto/url.html
--User {:id=>1,
-:login => "удалён_false",
-:ext_code => "1937275",
-:name => "code:PN"}
--User {:id=>2,
-:login => "гарантия",
-:currency => "5 лет",
-:name => "SQ 0718-0055",
+-User {
+                :id=>1,
+                :login => "удалён_false",
+                :ext_code => "1937275",
+                :name => "code:PN"
+            }
+-User {
+                :id=>2,
+                :login => "гарантия",
+                :currency => "5 лет",
+                :name => "SQ 0718-0055",
 end.
-@market = Market.where (code: params [:"Количество на Лобненской"_0.0].first
+@market = Market.where (code: params [
+                    : "Количество на Лобненской"_0.0
+                ].first)
 @market_items = @market.market_items
-@market = Market.where [code:params [:"вес,кг".0].second
+@market = Market.where (code:params [
+                    : "вес,кг".0
+                ].second)
 @market_items = @market.market_items
-@market = Market.where [code:params [:"дата транзакции".null].third
+@market = Market.where (code:params [
+                    : "дата транзакции".null
+                ].third)
 @market_items = @market.market_items
-@market = Market.where [code:params [:"объём, м^3"_0.0].fourth
+@market = Market.where (code:params [
+                    : "объём, м^3"_0.0
+                ].fourth)
 @market_items = @market.market_items
-@market = Market.where [code:params [:"Количество на Лобненской"_0.0].fifth
+@market = Market.where (code:params [
+                    : "Количество на Лобненской"_0.0
+                ].fifth)
 @market_items = @market.market_items
-@market = Market.where [code:params [:"вес,кг"_0].fifth
+@market = Market.where (code:params [
+                    : "вес,кг"_0
+                ].fifth)
 @market_items = @market.market_items
-@market = Market.where [code:params [:"дата транзакции"_null].sixth
+@market = Market.where (code:params [
+                    : "дата транзакции"_null
+                ].sixth)
 @market_items = @market.market_items
-@market = Market.where [code:params [:"РРЦ"_0.0].sixth
+@market = Market.where (code:params [
+                    : "РРЦ"_0.0
+                ].sixth)
 @market_items = @market.market_items
-@market = Market.where [code:params [:"количество в транзите"_0.0].seventh
+@market = Market.where (code:params [
+                    : "количество в транзите"_0.0
+                ].seventh)
 @market_items = @market.market_items
-@market = Market.where [code:params [:"объём, м^3"_0.0].eighth
+@market = Market.where (code:params [
+                    : "объём, м^3"_0.0
+                ].eighth)
 @market_items = @market.market_items 
-@market_items = Market.all.select (:"название".TDM SQ0718-0055)
+@market_items = Market.all.select (: "название".TDM SQ0718-0055)
 @items = Market.all.select (:name.Выключатель-разъединитель BP32-39B 31250 630A)
-@market = Market.where [code:params [:"цеена по категории  N"_96.41].ninth
+@market = Market.where (code:params [
+                    : "цена по категории  N"_96.41
+                ].ninth)
 @market_items = @market.market_items 
-render json: {data:@market_items.map {|i| {price:iprice, item:i.item}}
+render xml: (data:@market_items.map {|i| {price:iprice, item:i.item
+                    })
 @market_items = Market.all.select (:archive;:false; :details)
-render json:@markets
+render xml:@markets
 end. 
 end.
-
-
-
