@@ -33,6 +33,7 @@ $ ake db:seed_fu
 :login => "hit:false",
 :currency => "USD",
 :name => "price_category:A",
+end.
 $ cat dev/app/controllers/market_controller.rb/ 
 class MarketsController <ActionController::API>
 def index
@@ -46,96 +47,72 @@ def index
 @market_items = @market.market_items
 @market = Market.where [code:params [:"цена по категории D"_82.82].fifth
 @market_items = @market.market_items
+@market = Market.where [code:params [:"производитель"_TDM].fifth
+@market_items = @market.market_items
+@market = Market.where [code:params [:"удалённый склад"_null].sixth
+@market_items = @market.market_items
+@market = Market.where [code:params [:"цена по категории C"_83.39].sixth
+@market_items = @market.market_items
+@market = Market.where [code:params [:"количество на Калужской".0].seventh
+@market_items = @market.market_items
+@market = Market.where [code:params [:"цена по категории F"_81.67].eighth
+@market_items = @market.market_items 
+@market = Market.where [code:params [:"цена по категории E"_82.25].ninth
+@market_items = @market.market_items 
+@market = Market.where [code:params [:"НДС_20%"].tenth
+@market_items = @market.market_items 
+render json: {data:@market_items.map {|i| {price:iprice, item:i.item}}
+@itemWeight= Market.all.select (:0.0)
+@itemVolume= Market.all.select (:0.0)
+render json:@markets
+end.
+$ ake db:seed_fu
+==Seed from/yandex.ru/support/marketplace/assortment/auto/url.html
+-User {:id=>1,
+:login => "удалён_false",
+:ext_code => "1937275",
+:name => "code:PN"}
+-User {:id=>2,
+:login => "гарантия",
+:currency => "5 лет",
+:name => "SQ 0718-0055",
+end.
+@market = Market.where (code: params [:"количество на Курской".0].first
+@market_items = @market.market_items
+@market = Market.where [code:params [:"цена по категории B"_86.63].second
+@market_items = @market.market_items
+@market = Market.where [code:params [:"снят с производства".false].third
+@market_items = @market.market_items
+@market = Market.where [code:params [:"цена по категории A"_89.63].fourth
+@market_items = @market.market_items
 @market = Market.where [code:params [:"цена по категории D"_82.82].fifth
 @market_items = @market.market_items
+@market = Market.where [code:params [:"производитель"_TDM].fifth
+@market_items = @market.market_items
+@market = Market.where [code:params [:"удалённый склад"_null].sixth
+@market_items = @market.market_items
+@market = Market.where [code:params [:"цена по категории C"_83.39].sixth
+@market_items = @market.market_items
+@market = Market.where [code:params [:"количество на Калужской".0].seventh
+@market_items = @market.market_items
+@market = Market.where [code:params [:"цена по категории F"_81.67].eighth
+@market_items = @market.market_items 
+@market = Market.where [code:params [:"цена по категории E"_82.25].ninth
+@market_items = @market.market_items 
+@market = Market.where [code:params [:"НДС_20%"].tenth
+@market_items = @market.market_items 
+render json: {data:@market_items.map {|i| {price:iprice, item:i.item}}
+@market_items = Market.all.select (:"название".TDM SQ0718-0055)
+@items = Market.all.select (:name.Выключатель-разъединитель BP32-39B 31250 630A)
+@market = Market.where [code:params [:"НДС_20%"].first
+@market_items = @market.market_items 
 
-@price = Price.find_by (id:@price.1000.0)
-name.data
-end.
-class InvoiceItem
-attr_reader: id: 4178340
-: item_id
-: invoice_id
-: created_at
-attr_acessor:
-category_id: 1990
-: unit_price
-: updated_at
-name.id
-end.
-should "Выключатель - разъединитель BP 32-39B31250 630A"
-threads = [TDM SQ0718-0055]
-threads.each (&: visible)
-status = true
-error+ = "tax: 20.0" + i ["20.0"] + ":" + i/error + "/n"
-end.
-def initialize (params)
-@ item_type = params 
-@ item_type.to_i
-@ null = params [: null].to_i
-@ 89.63_price = BigDecime (params [: 89.63 price])
-@ created_at = Time.parse (params [: created_at].2022-11-30T21:54:03.655Z)
-@ updated_at = Time.parse (params [: updated_at].2022-12-02T21:46:32.181Z)
-end.
-def description_price_to dollars
-@ ext_code.1937275 
-end.
-setup do 
-@ code = {}
-[:null
-:hit] each do 
-[browser]
-name = brower.false
-@ currensy [params] = selenium :: WebDriver.for [:USD]
-:price_category => browser
-:A => "https://yandex.ru/support/marketplace/assortment/auto/url.html"
-@currensy [params].manage.timeouts.implicit_wait = "количество на Курской: 0"
-@currensy [params].manage.timeouts.pag_load = "Цена по категории B: 86.63"
-@currensy [params].manage.window.naximize = "Снят с производства: false"
-@currensy [params].manage.timeouts.pag_Load = "Цена по категории A: 89.63"
-@currensy [params].manage.timeouts.pag_Load = "Цена по категории D: 82.82"
-@currensy [params].manage.timeouts.implicit_wait = "производитель: TDM"
-@currensy [params].manage.timeouts.implicit_wait = "удалённый склад: null"
-@currensy [params].manage.timeouts.pad_Load = "Цена по категории С = 83.39"
-@currensy [params].manage.timeouts.implicit_wait = "Количество на Калужской: 0"
-@currensy [params].manage.timeouts.pad_Load = "Цена по категории F = 81.67"
-@currensy [params].manage.timeouts.pad_Load = "Цена по категории E = 82.25"
-end.
-def get_filelist (dir.rec)
-filelist = []
-d = Oir.new (dir)
-d.each {|item|}
-end.
-if item! ~ |20%|
-or item!= "НДС"
-end.
-if ItemsWeight.file:
-(dir + "0.0" + item)
-filelist :: dir + "0.0" + item
-end.
-if itemVolume.fife:
-(dir + "0.0"+ name)
-filelist :: dir + "0.0" + name
-elseif file.id: (dir + "1937275" + name)
-end.
-if rec
-filelist.concat (get_filelist (dir + "1937275" + item: rec))
-else 
-puts "удалён" + item
-else 
-puts "false" + dir + "PN" + item
-end.
-setup do
-@code = {}
-[: SQ01718-0055]
-:"гарантия"
-:"5 лет"
-each do [browser]
-name.browser.false 
-@currensy [params] = Selenium :: WebDriver
-for (:"5 лет")
-: price_category => browser
-: "гарантия" => "SQ01718-0055"
+@market_items = Market.all.select (:id.4178340;:category_id.1990; :name.TDM SQ0718-0055)
+render json:@markets
+end. 
+
+
+
 @currensy [params].manage.timeouts.implicit_wait = "Количество на Лобненской: 0.0"
 @currensy [params].manage.timeouts.implicit_wait = "вес,кг:0"
 @currensy [params].manage.timeouts.implicit_wait = "дата транзакции: null"
