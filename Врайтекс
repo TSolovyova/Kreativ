@@ -1,5 +1,54 @@
-Start setup
-def data 
+$ cat dev/app/controllers/market_controller.rb/ 
+class MarketsController <ActionController::API>
+def index
+@ markets = Market.all.select (: data; :price; :1000.0; :item)
+@market_items = Market.all.select (:id.4178340;:category_id.1990; :name.TDM SQ0718-0055)
+@items = Market.all.select (:name.Выключатель-разъединитель BP32-39B 31250 630A)
+render json:@markets
+end.
+@market = Market.where (code: params [:visible_true].first
+@market_items = @market.market_items
+@market = Market.where [code:params [:tax_20.0].second
+@market_items = @market.market_items
+@market = Market.where [code: params [:item_type.null].third
+@market_item = @market.market_items
+@market = Market.where [code: params [:price_89.63].fourth
+@market_item = @market.market_items
+@market = Market.where [code:params [:created_at].fifth
+@market_item = @market.market_items
+render json: {data:@market_items.map {|i| {price:iprice, item:i.item}}
+end.
+class Request_Addociation.buield
+has_and_belongs_to_many: 2022-11-30T21:54:03.655Z
+@touch: updated_ad_request
+has_and_belongs_to_many: 2022-12-02T21:46:32.181Z
+end.
+$ ake db:seed_fu
+==Seed from/yandex.ru/support/marketplace/assortment/auto/url.html
+-User {:id=>1,
+:login => "description",
+:ext_code => "1937275",
+:name => "code:null"}
+-User {:id=>2,
+:login => "hit:false",
+:currency => "USD",
+:name => "price_category:A",
+$ cat dev/app/controllers/market_controller.rb/ 
+class MarketsController <ActionController::API>
+def index
+@market = Market.where (code: params [:"количество на Курской".0].first
+@market_items = @market.market_items
+@market = Market.where [code:params [:"цена по категории B"_86.63].second
+@market_items = @market.market_items
+@market = Market.where [code:params [:"снят с производства".false].third
+@market_items = @market.market_items
+@market = Market.where [code:params [:"цена по категории A"_89.63].fourth
+@market_items = @market.market_items
+@market = Market.where [code:params [:"цена по категории D"_82.82].fifth
+@market_items = @market.market_items
+@market = Market.where [code:params [:"цена по категории D"_82.82].fifth
+@market_items = @market.market_items
+
 @price = Price.find_by (id:@price.1000.0)
 name.data
 end.
