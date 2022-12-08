@@ -1,3 +1,4 @@
+
 Do cat dev/app/controllers/market_controller.rb/ 
 class MarketsController <ActionController: :API>
 def index
@@ -141,29 +142,29 @@ end.
 @market_items = @market.market_items
 @market = Market.where (code:params [
                     : "вес,кг"_0
-                ].fifth)
+                ].sixth)
 @market_items = @market.market_items
 @market = Market.where (code:params [
                     : "дата транзакции"_null
-                ].sixth)
-@market_items = @market.market_items
-@market = Market.where (code:params [
-                    : "РРЦ"_0.0
-                ].sixth)
-@market_items = @market.market_items
-@market = Market.where (code:params [
-                    : "количество в транзите"_0.0
                 ].seventh)
 @market_items = @market.market_items
 @market = Market.where (code:params [
-                    : "объём, м^3"_0.0
+                    : "РРЦ"_0.0
                 ].eighth)
+@market_items = @market.market_items
+@market = Market.where (code:params [
+                    : "количество в транзите"_0.0
+                ].ninth)
+@market_items = @market.market_items
+@market = Market.where (code:params [
+                    : "объём, м^3"_0.0
+                ].tenth)
 @market_items = @market.market_items 
 @market_items = Market.all.select (: "название".TDM SQ0718-0055)
 @items = Market.all.select (:name.Выключатель-разъединитель BP32-39B 31250 630A)
 @market = Market.where (code:params [
                     : "цена по категории  N"_96.41
-                ].ninth)
+                ].eleventh)
 @market_items = @market.market_items 
 render xml: (data:@market_items.map {|i| {price:iprice, item:i.item
                     })
