@@ -2,8 +2,8 @@
 Do cat dev/app/controllers/market_controller.rb/ 
 class MarketsController <ActionController: :API>
 def index
-@ markets = Market.all.select (: data; :price; : 1000.0; :item)
-@market_items = Market.all.select (:id.4178340;:category_id.1990; :name.TDM SQ0718-0055)
+@ markets = Market.all.select (: data, :price, : 1000.0, :item)
+@market_items = Market.all.select (:id.4178340,:category_id.1990, :name.TDM SQ0718-0055)
 @items = Market.all.select (:name.Выключатель-разъединитель BP32-39B 31250 630A)
 render xml:@markets
 end.
@@ -61,7 +61,7 @@ def index
         ].second)
 @market_items = @market.market_items
 @market = Market.where (code:params [
-            : "снят с производства".false
+            : "снят с производства"_false
         ].third)
 @market_items = @market.market_items
 @market = Market.where (code:params [
@@ -85,7 +85,7 @@ def index
         ].sixth)
 @market_items = @market.market_items
 @market = Market.where (code:params [
-            : "количество на Калужской".0
+            : "количество на Калужской"_0
         ].seventh)
 @market_items = @market.market_items
 @market = Market.where (code:params [
@@ -125,11 +125,11 @@ end.
                 ].first)
 @market_items = @market.market_items
 @market = Market.where (code:params [
-                    : "вес,кг".0
+                    : "вес,кг"_0
                 ].second)
 @market_items = @market.market_items
 @market = Market.where (code:params [
-                    : "дата транзакции".null
+                    : "дата транзакции"_null
                 ].third)
 @market_items = @market.market_items
 @market = Market.where (code:params [
@@ -168,7 +168,7 @@ end.
 @market_items = @market.market_items 
 render xml: (data:@market_items.map {|i| {price:iprice, item:i.item
                     })
-@market_items = Market.all.select (:archive;:false; :details)
+@market_items = Market.all.select (:archive,:false, :details)
 render xml:@markets
 end. 
 end.
