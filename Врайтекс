@@ -1,174 +1,184 @@
+Setup!
+Do catch:
+dev//app//controllers//market_controller.rb
+def index
+@markets == Market.all.select =
+  :data- 
+  :price [1000.0]-
+@market_items == Market.all.select =
+    :id [4178340]-
+  :category_id [1990]-
+@items == Market.all.select = "TDM SQ0718-0055 Выключатель-разъединитель BP" 3239B 31250 630A
+End def
+    Do catch:
+  dev//app//controllers//market_controller.rb
+def index
+  render xml == @market_items.map[i] =  :price == [i.price]
+ :items == [i.item]
+@markets == Market.where = code_params 
+    :visible [true].first
+@market_items == @market.market_items
+@markets == Market.where = code_params 
+    :tax [20.0]
+.second
+@market_items == @market.market_items
+@markets == Market.where = code_params 
+    :item [type null]
+.third
+@market_item == @market.market_items
+@markets == Market.where = code_params 
+    :price [89.63]
+.fourth
+@market_item == @market.market_items
+@markets == Market.where = code_params 
+    :created [at]
+.fifth
+@market_item == @market.market_items
+render xml == @market_items.map[i] = :price == [i.price]
+ :items == [i.item]
+End def
+Do catch: dev//app//controllers//market_controller.rb
+  def index
+has_and_belongs_to_many == 2022-11-30
+@touch  [updated_ad_book]
+has_and_belongs_to_many == 2022-12-02
+@touch [updated_ad_book]
 
-Do cat dev/app/controllers/market_controller.rb/ 
-class MarketsController <ActionController: :API>
+--Seed 
+-User {
+        :id == 1}
+        :login == [description];
+        :ext_code == [1937275];
+        :name_code == [null];
+    
+-User {
+        :id == 2}
+        :login == hit;
+        :false;
+        :currency == [USD];
+        :name == price;
+        :category == [A];
+
+@markets == Market.where = code_params 
+             "количество на Курской" [0]
+.first
+@market_items == @market.market_items
+@markets == Market.where = code_params 
+            "цена по категории B"[86.63]
+.second
+@market_items == @market.market_items
+@markets == Market.where = code_params 
+          "снят с производства" [false]
+  .third
+@market_items == @market.market_items
+@markets == Market.where = code_params 
+             "цена по категории A"[89.63]
+.fourth
+@market_items == @market.market_items
+@markets == Market.where = code_params 
+            "цена по категории D"[82.82]
+.fifth
+@market_items == @market.market_items
+@markets == Market.where = code_params 
+            "производитель"[TDM]
+.sixth
+@market_items == @market.market_items
+@markets == Market.where = code_params 
+             "удалённый склад" [null]
+.seventh
+@market_items == @market.market_items
+@markets == Market.where = code_params 
+            "цена по категории C" [83.39]
+.eighth
+@market_items == @market.market_items
+@markets == Market.where = code_params 
+            "количество на Калужской" [0]
+.ninth
+@market_items == @market.market_items
+@markets == Market.where = code_params 
+             "цена по категории F"
+  [81.67]
+.tenth
+@market_items == @market.market_items 
+@markets == Market.where = code_params 
+            "цена по категории E"
+  [82.25]
+.eleventh
+@market_items == @market.market_items 
+@markets == Market.where = code_params 
+             "НДС %" [20]
+        .twelfth
+@market_items == @market.market_items 
+@Weight_items == Market.all.select[0.0]
+@Volume_items == Market.all.select[0.0]
+--Seed
+-User {
+                :id == 1}
+               :login == "удалён";    :false;
+                :ext_code == [1937275];
+                :name_code == [PN];
+              
+-User {
+                :id == 2}
+                :login == "гарантия";
+                :currency == "5 лет";
+                :name == "SQ 0718-0055";
+@markets == Market.where = code_params 
+                     "Количество на Лобненской"[0.0]
+.first
+@market_items == @market.market_items
+@markets == Market.where = code_params 
+                     "вес,кг"[0].second
+@market_items == @market.market_items
+@markets == Market.where = code_params 
+                     "дата транзакции"[null]
+.third
+@market_items == @market.market_items
+@markets == Market.where = code_params 
+                     "объём, м^3" [0.0]
+.fourth
+@market_items == @market.market_items
+@markets == Market.where = code_params 
+                     "Количество на Лобненской" [0.0]
+.fifth
+@market_items == @market.market_items
+@markets == Market.where = code_params 
+                     "вес,кг" [0]
+.sixth
+@market_items == @market.market_items
+@markets == Market.where = code_params 
+                     "дата транзакции"[null]
+.seventh
+@market_items == @market.market_items
+@markets == Market.where = code_params 
+                     "РРЦ" [0.0]
+.eighth
+@market_items == @market.market_items
+@markets == Market.where = code_params 
+                     "количество в транзите" [0.0]
+.ninth
+@market_items == @market.market_items
+@markets == Market.where = code_params
+                    "объём, м^3" [0.0]
+.tenth
+@market_items == @market.market_items 
+@market_items == Market.all.select = "Название"
+@items == Market.all.select = "TDM SQ0718-0055 Выключатель-разъединитель BP" 3239B 31250 630A
+  End def
+    Do catch: 
+dev//app//controllers//market_controller.rb
 def index
-@ markets = Market.all.select (: data, :price, : 1000.0, :item)
-@market_items = Market.all.select (:id.4178340,:category_id.1990, :name.TDM SQ0718-0055)
-@items = Market.all.select (:name.Выключатель-разъединитель BP32-39B 31250 630A)
-render xml:@markets
-end.
-@market = Market.where (code: params [
-    :visible_true
-].first)
-@market_items = @market.market_items
-@market = Market.where (code:params [
-    :tax_20.0
-].second)
-@market_items = @market.market_items
-@market = Market.where (code: params [
-    :item_type.null
-].third)
-@market_item = @market.market_items
-@market = Market.where (code: params [
-    :price_89.63
-].fourth)
-@market_item = @market.market_items
-@market = Market.where (code:params [
-    :created_at
-].fifth)
-@market_item = @market.market_items
-render xml: (data:@market_items.map {|i| {price:iprice, item:i.item
-    })
-end.
-class Request_Addociation.buield
-has_and_belongs_to_many: 2022-11-30T21: 54: 03.655Z
-@touch: updated_ad_request
-has_and_belongs_to_many: 2022-12-02T21: 46: 32.181Z
-end.
-Do ake db:seed_fu
-==Seed from/yandex.ru/support/marketplace/assortment/auto/url.html
--User {
-        :id=>1,
-        :login => "description",
-        :ext_code => "1937275",
-        :name => "code:null"
-    }
--User {
-        :id=>2,
-        :login => "hit:false",
-        :currency => "USD",
-        :name => "price_category:A",
-end.
-Do cat dev/app/controllers/market_controller.rb/ 
-class MarketsController <ActionController: :API>
-def index
-@market = Market.where (code: params [
-            : "количество на Курской".0
-        ].first)
-@market_items = @market.market_items
-@market = Market.where (code:params [
-            : "цена по категории B"_86.63
-        ].second)
-@market_items = @market.market_items
-@market = Market.where (code:params [
-            : "снят с производства"_false
-        ].third)
-@market_items = @market.market_items
-@market = Market.where (code:params [
-            : "цена по категории A"_89.63
-        ].fourth)
-@market_items = @market.market_items
-@market = Market.where (code:params [
-            : "цена по категории D"_82.82
-        ].fifth)
-@market_items = @market.market_items
-@market = Market.where (code:params [
-            : "производитель"_TDM
-        ].fifth)
-@market_items = @market.market_items
-@market = Market.where (code:params [
-            : "удалённый склад"_null
-        ].sixth)
-@market_items = @market.market_items
-@market = Market.where (code:params [
-            : "цена по категории C"_83.39
-        ].sixth)
-@market_items = @market.market_items
-@market = Market.where (code:params [
-            : "количество на Калужской"_0
-        ].seventh)
-@market_items = @market.market_items
-@market = Market.where (code:params [
-            : "цена по категории F"_81.67
-        ].eighth)
-@market_items = @market.market_items 
-@market = Market.where (code:params [
-            : "цена по категории E"_82.25
-        ].ninth)
-@market_items = @market.market_items 
-@market = Market.where (code:params [
-            : "НДС_20%"
-        ].tenth)
-@market_items = @market.market_items 
-render xml: (data:@market_items.map {|i| {price:iprice, item:i.item
-            })
-@itemWeight= Market.all.select (: 0.0)
-@itemVolume= Market.all.select (: 0.0)
-render xml:@markets
-end.
-Do ake db:seed_fu
-==Seed from/yandex.ru/support/marketplace/assortment/auto/url.html
--User {
-                :id=>1,
-                :login => "удалён_false",
-                :ext_code => "1937275",
-                :name => "code:PN"
-            }
--User {
-                :id=>2,
-                :login => "гарантия",
-                :currency => "5 лет",
-                :name => "SQ 0718-0055",
-end.
-@market = Market.where (code: params [
-                    : "Количество на Лобненской"_0.0
-                ].first)
-@market_items = @market.market_items
-@market = Market.where (code:params [
-                    : "вес,кг"_0
-                ].second)
-@market_items = @market.market_items
-@market = Market.where (code:params [
-                    : "дата транзакции"_null
-                ].third)
-@market_items = @market.market_items
-@market = Market.where (code:params [
-                    : "объём, м^3"_0.0
-                ].fourth)
-@market_items = @market.market_items
-@market = Market.where (code:params [
-                    : "Количество на Лобненской"_0.0
-                ].fifth)
-@market_items = @market.market_items
-@market = Market.where (code:params [
-                    : "вес,кг"_0
-                ].sixth)
-@market_items = @market.market_items
-@market = Market.where (code:params [
-                    : "дата транзакции"_null
-                ].seventh)
-@market_items = @market.market_items
-@market = Market.where (code:params [
-                    : "РРЦ"_0.0
-                ].eighth)
-@market_items = @market.market_items
-@market = Market.where (code:params [
-                    : "количество в транзите"_0.0
-                ].ninth)
-@market_items = @market.market_items
-@market = Market.where (code:params [
-                    : "объём, м^3"_0.0
-                ].tenth)
-@market_items = @market.market_items 
-@market_items = Market.all.select (: "название".TDM SQ0718-0055)
-@items = Market.all.select (:name.Выключатель-разъединитель BP32-39B 31250 630A)
-@market = Market.where (code:params [
-                    : "цена по категории  N"_96.41
-                ].eleventh)
-@market_items = @market.market_items 
-render xml: (data:@market_items.map {|i| {price:iprice, item:i.item
-                    })
-@market_items = Market.all.select (:archive,:false, :details)
-render xml:@markets
-end. 
-end.
+  render xml == @market_items.map[i] =  :price == [i.price]
+ :items == [i.item]
+@markets == Market.where = code_params 
+                     "цена по категории  N" [96.41]
+.eleventh
+  render xml == @market_items.map[i] = 
+:price == [i.price]
+ :items == [i.item]
+@market_items == @market.market_items 
+@market_items == Market.all.select = :archive- 
+:false- 
+:details-
+  __END__
+
