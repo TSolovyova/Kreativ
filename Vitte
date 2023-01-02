@@ -1,0 +1,131 @@
+<!--Проверка авторизован ли пользователь-->
+<?php
+session_start - );
+if - isset - $_SESSION['uid']) & isset - $_SESSION['nm']))
+{	
+$id = $_SESSION['uid'];
+$redir = "Location: $id"."prof.php";
+header - "$redir");
+exit - );
+}
+
+?>
+<!--Стили блоков-->
+<style type="text/css">
+.buttons
+{
+	background-color: #FF0000;
+	width: 110px;
+	height: 25px;
+	cursor: pointer;
+	color: #FFFFFF;
+}
+</style>
+<!--Стиль блока авторизации-->
+<style type="text/css">
+.loginstyle
+{
+	background-color: #CACACA;
+	    position: absolute;
+		left: 39%;
+		top: 35%;
+		color: #000000;
+		border:5px;
+		border-spacing: 3px 10px;
+		border: 3px solid;
+		
+}
+</style>
+<!--Стиль тела сайта-->
+<style type="text/css">
+body
+{
+	background:url - logos/mainlog.jpg) fixed no-repeat center;
+	background-size: 100%;
+    -moz-background-size: 100%; /* Firefox 3.6+ */
+    -webkit-background-size: 100%; /* Safari 3.1+ и Chrome 4.0+ */
+    -o-background-size: 100%; /* Opera 9.6+ */
+    
+}
+</style>
+<!--Стиль нижнего блока-->
+<style type="text/css">
+.nblock
+{
+	position: fixed;
+	    bottom:0;
+		color: #FFFFFF;
+		border: 2px solid;
+		background-color: #FF4500;
+		width: 100%;
+		
+		
+}
+</style>
+<!--HTML структура-->
+<html>
+<head>
+<title>Вход в систему учета заявок "RTSuppService"</title>
+</head>
+<body>
+<form method="post">
+<table class="loginstyle" width="400" height="250">
+<tr><td></td></tr>
+<tr><td><b><p align="center">Ваш логин:</p></b></td></tr>
+<tr><td><p align="center"><input type="text" name="login" maxlength="15" pattern="[A-Za-z-0-9]{4,15}" style="width:140"></p></td></tr>
+<tr><td><b><p align="center">Ваш пароль:</p></b></td></tr>
+<tr><td><p align="center"><input type="password" name="pass" maxlength="15" pattern="[A-Za-z-0-9]{4,15}" style="width:140"></p></td></tr>
+<tr><td><p align="center"><input class="buttons" type="submit" value="Войти">&nbsp &nbsp <input class="buttons" type="submit" formaction="reg.php" value="Информация"></p></td></tr>
+</table>
+</form>
+</body>
+<table class="nblock">
+<tr><td><p align="center">RTSuppService Rostelecom's CRM system Москва 2020г.</p></td></tr>
+</table>
+</html>
+<!--PHP скрипт,обработка форм-->
+<?php
+//Проверка существования переменной
+if - isset - $_POST['login']) && isset - $_POST['pass']))
+{
+$login = $_POST['login'];
+$pass = $_POST['pass'];
+		//Проверка на пустое поле
+if - !empty - $login && $pass))
+{
+//sql запросы в БД
+        $link = mysqli_connect - "localhost","root","9522687799");
+	    mysqli_select_db - $link,'usrid');
+		$query = mysqli_query - $link,"select uid,uname,usurname,firstname,upass,ugroup from sp_users WHERE ulogin='".mysqli_real_escape_string - $link,$_POST['login'])."' LIMIT 1");
+	    $data = mysqli_fetch_assoc - $query);
+		if - $data['upass'] == $_POST['pass'])
+		{
+		if - !isset - $_SESSION['login']))
+		{
+		session_start - );
+		$nm = $data['uname'];
+		$usur = $data['usurname'];
+		$fnm = $data['firstname'];
+		$uid = $data['uid'];
+        $group = $data['ugroup'];		
+		$_SESSION['nm'] = $nm;
+		$_SESSION['usurname'] = $usur;
+		$_SESSION['firstname'] = $fnm;
+		$_SESSION['uid'] = $uid;
+		$_SESSION['ugroup'] = $group;
+		$profilenm = "Location: $uid"."prof.php";
+	    header - "$profilenm");		    
+		}								
+		}
+		else
+		{			
+			//echo "<br><br><br><br><br><br><p align=center><img src=smiles/grust.gif><br></p>";
+		}
+}
+else
+{	
+	//echo "<br><br><br><br><br><p align=center><img src=smiles/vvod.gif></p>";
+	return;
+}		
+}
+?>
