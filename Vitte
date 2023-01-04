@@ -1,12 +1,130 @@
-<!--Проверка авторизован ли пользователь-->
+—— файл sess1.php ——
 <?php
-session_start - );
-if - isset - $_SESSION['uid']) & isset - $_SESSION['nm']))
-{	
-$id = $_SESSION['uid'];
-$redir = "Location: $id"."prof.php";
-header - "$redir");
-exit - );
+//определяем константу для сравнения с логином пользователя
+define ('ADMIN','admin');
+//открываем сессию session_start ();
+//принимаем данные из формы
+if (!empty ($_POST ['login']);
+{//создаём сессионную переменную
+if ($POST ['login']===ADMIN;
+{$_SECCION ['admin']==ADMIN;
+echo 'Вы успешно авторизировались';
+} else {
+echo "Неверный логин";
+}
+}
+?>
+<ul>
+<li> <ahref = sess1.php">sess1
+</a></li>
+<li><ahref="secret.php">secret</a></li>
+</ul>
+<hr>
+<!—— форма авторизации ——>
+<formaction=""method="post">
+<input type="text"name
+<button type = "submit">
+Login </button>
+</form>
+—— файл sess2.php ——
+<?php//открываем сессию
+session_start ();
+//определяем константу для сравнения с логином пользователя
+define ('ADMIN','admin');
+//принимаем данные из формы
+//если у нас что-то пришло POST—ом
+if (!empty ($_POST ['login']))
+//и если это равно константе ADMIN
+if ($_POST ['login'])) {
+//и если это равно константе
+if ($_POST ['login']===ADMIN)
+{
+//тогда мы создадим сессионную переменную
+//чтобы мы могли попасть на страницу secret
+$_SESSION ['admin']=ADMIN;
+//записываем сообщение в сессию об успехе
+$_SESSION ['res']='Вы успешно авторизировались!';
+} 
+else 
+{
+//иначе запишем сообщение об ошибке
+$_SESSION ['res']='Неверный логин';
+}
+//и делаем в любом случае редирект
+//чтобы перезапустить страницу и сбросить данные из формы
+header ("Location:sess1.php");
+//и завершаем выполнение скрипта
+die;
+}
+?>
+—— файл secret.php ——
+<ul>
+<li><a href="sess1.php">sess1
+</a></li>
+<li><a href ="sess2.php">sess2
+</a></li>
+<li><a hreaf='secret.php'>
+secret</a></li>
+</ul>
+<hr>
+<!—— если существует сессионная переменная, то выводим сообщение——>
+<?php
+if (isset ($_Session ["res"])){
+echo $_SESSION ['res'];
+//удалим ненужную переменную из сессии
+//(после обновления страницы сообщение — не нужно)
+unset ($_SESSIOM ['res'];
+}
+?>
+<!—— форма авторизации ——>
+<form action="" method="post">
+<Input type="text"
+name ="login">
+<buttontype="submit">
+Login </button>
+</form>
+—— файл test.php в директории test——
+<?php
+//эта Кука будет доступна для всего домена Phplessons/
+setcookie ('test2', 'MyValue2', time ()+3600,'/')
+echo $_COOKIE['test'];
+echo '<br>';
+echo $_COOKIE['test2'];
+echo <'br'>;
+echo 'файл test из директории test';
+?>
+—— файл index.php ——
+
+<?php
+//setcookie('test', 'My Value', time ()+3600);
+//удаляем ку-ку test setcookie ('test','', time()_3600);
+//удаляем ку-ку test2, здесь надо указывать путь'
+/'setcookie('test2', '', time() — 3600,'/')
+echo $_COOKIE ['test'];
+echo '<br>';
+var_dump ($_COOKIE);
+echo '<br>';
+var_dump ($_COOKIE);
+echo '<br>';
+echo'<br>';
+echo 'файл index.php';
+?>
+//ку-ки test и test2
+(для всего этапа работы программы будут удалены)/
+header("Content—type:text(html; charset—utf-8");
+error_reporting(—1);
+require_once 'test.php';
+//подключаем файл test.php/
+require_once 'funcs.php';
+//принятие данных из формы/
+//если у нас не пуст массив/
+$_POST то вызовем некую функцию: save_mess
+if (!empty ($_POST)){
+save_mess();
+//производим редирект/
+header("Location:
+{$_SERVER['PHP_SELF]}");
+exit;
 }
 
 ?>
@@ -63,6 +181,7 @@ body
 }
 </style>
 <!--HTML структура-->
+<html Lang="en">
 <html>
 <head>
 <title>Вход в систему учета заявок "RTSuppService"</title>
@@ -83,49 +202,45 @@ body
 <tr><td><p align="center">RTSuppService Rostelecom's CRM system Москва 2020г.</p></td></tr>
 </table>
 </html>
-<!--PHP скрипт,обработка форм-->
+
+<!--PHP функция,обработка форм-->
 <?php
-//Проверка существования переменной
-if - isset - $_POST['login']) && isset - $_POST['pass']))
-{
-$login = $_POST['login'];
-$pass = $_POST['pass'];
-		//Проверка на пустое поле
-if - !empty - $login && $pass))
-{
-//sql запросы в БД
-        $link = mysqli_connect - "localhost","root","9522687799");
-	    mysqli_select_db - $link,'usrid');
-		$query = mysqli_query - $link,"select uid,uname,usurname,firstname,upass,ugroup from sp_users WHERE ulogin='".mysqli_real_escape_string - $link,$_POST['login'])."' LIMIT 1");
-	    $data = mysqli_fetch_assoc - $query);
-		if - $data['upass'] == $_POST['pass'])
-		{
-		if - !isset - $_SESSION['login']))
-		{
-		session_start - );
-		$nm = $data['uname'];
-		$usur = $data['usurname'];
-		$fnm = $data['firstname'];
-		$uid = $data['uid'];
-        $group = $data['ugroup'];		
-		$_SESSION['nm'] = $nm;
-		$_SESSION['usurname'] = $usur;
-		$_SESSION['firstname'] = $fnm;
-		$_SESSION['uid'] = $uid;
-		$_SESSION['ugroup'] = $group;
-		$profilenm = "Location: $uid"."prof.php";
-	    header - "$profilenm");		    
-		}								
-		}
-		else
-		{			
-			//echo "<br><br><br><br><br><br><p align=center><img src=smiles/grust.gif><br></p>";
-		}
+function clear(){
+global $db;
+function clear(){
+global $db;
+foreach ($_POST as $Key=>$value){
+$_POST[$key]=mysqli_real_escape_string
+($db, $value);
 }
-else
-{	
-	//echo "<br><br><br><br><br><p align=center><img src=smiles/vvod.gif></p>";
-	return;
-}		
+}
+function save_mess(){
+global $db;
+//вызываём функцию clear (которая экранирует все данные в массиве $_POST)
+clear ();
+//получаем переменные $name и $text
+extract ($_POST);
+//$name = mysqli_real_escape_string($db,$_Post ['name']);
+//$text=mysqli_real_escape_string ($db,$_POST[text]);
+//составляем запрос
+$query = 'INSERT INTO gb (name, text) VALUES ('$name', '$text')';
+//выполняем запрос (без проверки)
+mysqli_query($db,$query);
+}//Пользовательская функция get_mess
+function get_mess (){
+//соединение с базой данных
+global $db;
+//запрос на выборку
+$query = "SELECT*FROM gb ORDER By id DESC";
+//выполняем запрос
+$res = mysqli_query($db,$query);
+//возвращаем готовый ассоциативный массив
+return mysqli_fetch_all
+($ res, MySQLI_ASSOC);
+}
+//функция для распечатки массива
+function print_arr ($arr)
+{
+echo'<pre>'; print_r ($arr, true)*</pre>;
 }
 ?>
