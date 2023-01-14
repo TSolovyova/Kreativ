@@ -1,0 +1,61 @@
+program Project1;
+const
+  S = 4;
+  C = 3;
+  H = 10;
+type mas=array[1..C,1..S] of integer;
+var M:mas; i,j,R,i_max,j_max,max:integer;
+procedure Rand();
+begin
+randomize;
+for i:=1 to C do
+ begin
+  for j:=1 to S do
+   begin
+    M[i,j]:=random(H);
+    write(' ',M[i,j]:3);
+   end;
+  writeln;
+ end;
+  readln;
+   end;
+   procedure MAXMIN();
+   begin
+  for i:=1 to C do
+  for j:=1 to S do
+  if max<M[i,j] then
+    begin
+    i_max:=i; j_max:=j; max:=M[i,j];
+    end;
+    writeln('max=',max,'; ','i_max=',i_max,'; ','j_max=',j_max);
+    R:=-1;
+    readln;
+    end;
+    procedure MUV();
+    begin
+    for i:=1 to S do
+  begin
+  R:=M[1,i]; M[1,i]:=M[i_max,i]; M[i_max,i]:=R;
+  end;
+
+    for i:=1 to C do
+  begin
+  R:=M[i,1]; M[i,1]:=M[i,j_max]; M[i,j_max]:=R;
+  end;
+    end;
+    procedure Vivod();
+    begin
+   for i:=1 to C do
+    begin
+     for j:=1 to S do
+      write(M[i,j]:4);
+      writeln;
+  end;
+    end;
+    begin
+    Rand;
+    MAXMIN;
+    MUV;
+    Vivod;
+      readln;
+end.
