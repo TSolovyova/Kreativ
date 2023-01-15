@@ -1,3 +1,23 @@
+<!DOCTYPE html PUBLIC” - //W3C//DTD =>XHTML 1.0 Transitional//EN’’
+‘’http://www.w3.org/TR/2000/REC-
+=>xhtml1-20000126/DTD/xhtml1-
+=>transitional.dtd’’>
+<html xmlns=”http://www.w3.org/
+=>1999/xhtml’’>
+<head>
+<title>Enter An Expense</title>
+</head>
+<body>
+If(isset($HTTP_POST_VARS[‘submit’]))
+{
+If(isset($HTTP_POST_VARS[‘expense_=>category_id’]) AND (strlen ($HTTP_
+=>category_id’]) AND (strlen ($HTTP_
+=> POST_VARS[‘expense_amount’])>0)
+=> AND (strlen ($HTTP_POST_VARS
+=> [‘expense_decription’])>0)){
+<?php
+Require_once (‘’../mysql_connect.inc’’)}
+
 —— файл sess1.php ——
 <?php
 //определяем константу для сравнения с логином пользователя
