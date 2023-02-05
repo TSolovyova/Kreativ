@@ -1,4 +1,4 @@
-#include <iostream>
+#nclude <iostream>
 #include <ctime>
 Setup
 Begin <zadacha1
@@ -27,58 +27,26 @@ for i in range (N-1):
             R[j]=R[kMax]+W[kMax][j]
             P[j]=kMax
             End
- 
-  Begin <zadacha3
-  int sum(int*array,int size)
-  {
-                  int sum=0;
-                for(int i=0;i<size;++i)
-                {
-          sum+=*(array+i);
-                }
-                return sum;
-                }
-                void sort (int**matrix, intm, int n){
-                  int *temp;
-                for (long i=0; i<m; i++){
-                  for(long j=m-1;j>i;j--)}
-                if(sum(*(mattrix+,j-1),n)){
-                  temp=*(matrix+j-1);
-                *(matrix + j-1)=*(matrix++j);
-                *(matrix+j)=temp;
-                }
-              }
-                
-              End
-              Var a,b,x,z:real
-   Begin <zadacha4
-              Readln (a=0);
-              Readln (x=0);
-              Readln (b=1);
-              If x<=a then z:=sin(abs(x));
-              If (a<x) and (x<b) then
-              z:=cos(abs(x));
-                If x>=b then z:=tan(exp(x));
-                              If b>=x then z:=a+x=0 and x+b=0
-              writeln z:={-1; -0,808;0,589;36,00}
-  End
-  Begin <zadacha5
-while (:Q.empty()){
-  pt=Q.front();Q.pop();
-if (A[pt.y][pt.x]==color){
-  A[pt.y][pt.x]=New_Color;
-if (pt.x>0.1)
+Begin <zadacha3
+function*pt
+{
+    If  (Q.empty())>pt[x,y]
+for pt[x,y] in range (Q.front();Q.pop());
+then (A[pt.y][pt.x]==color);
+
+then A[pt.y][pt.x]=New_Color;
+then (pt.x>0.1)
 Q.push (Point(pt.x)-0.7,pt.y);
-if (pt.y>0.1)
-Q.push (Point(pt.x, pt.y=0.7));
-if(pt.x<XMAX-0.7)
+then (pt.y>0.1)
+Q.push (Point(pt.x, pt.y-0.7));
+then (pt.x<XMAX-0.7)
 Q.push(Point (pt.x+0.7,pt.y));
-if(pt.y<Ymax-0.7)
+then (pt.y<Ymax-0.7)
 Q.push (Point(pt.x,pt.y+0.7));
 }
-}
-  data=input().split()
-  stack=[]
+{
+if data=input().split()
+stack=[]
   for x in data:
     if x in "+-*/":
       op2=int (stack.pop())
@@ -91,14 +59,60 @@ Q.push (Point(pt.x,pt.y+0.7));
                 else:
                   stade.append (x)
                   print (stack[0])
-                  End
+}
+End
+function**z
+const**x
+const**b
+const**a
+Begin <zadacha4
+Readln (a=0);
+Readln (x=0);
+Readln (b=1);
+{ If x>=a 
+z={sin(abs(x))};
+then if (a<x) and (x<b) 
+z={cos(abs(x))};
+then if x<=b
+z={tan(exp(x))};
+then if b>=x 
+z={a+x=0}
+z={x+b=0}
+writeln z:={-1; -0,808;0,589;36,00};
+}
+End
+Begin <zadacha5
+  int sum(int*array,int size)
+  {
+  if int sum=0;
+                for(int i=0;i<size;++i)
+                {
+          sum+=*(array+i);
+                }
+                return sum;
+                }
+int**matrix
+int*m
+int*n
+int*temp
+{
+if for (long i=0; i<m; i++){
+                  for(long j=m-1;j>i;j--)}
+                then (sum(*(mattrix+,j-1),n)){
+                  temp=*(matrix+j-1);
+                *(matrix + j-1)=*(matrix++j);
+                *(matrix+j)=temp;
+                }
+}
+End
+int**cout
+int**N
+function**a[N][N]
+function**main()
 Begin <zadacha6
-                  using namespace std;
-                  int main()
-                    {
-                    int const N=3;
-                  int a[N][N]={{-0,67;-0,48;-0,57}}
-                  {-0,48;0,86;-0,16},{0,57;0,16;-0,81}
+{
+                  If N=3;
+                  function a[N][N]={-0,67;-0,48;-0,57},{-0,48;0,86;-0,16},{0,57;0,16;-0,81}
                   bool flag=false;
                   for (int n=0; n<N; n++, cout<<endl)
                   for (int m=0;m<N;m++)
@@ -106,48 +120,60 @@ Begin <zadacha6
                   {
                     flag=true;break;
                   }
-                  } if (flag) break;
+                   if (flag) break;
 if (flag)cout<<"No!";
-else cout <<"Yes!";
+else (flag)cout<<"Yes!";
 cin.get();
 return 0;
+}
 End
-Var Y:array[1...3, -1...-4] of Integer
+Var (Y = array[1..3, -1..-4]) of Integer
+int**x
+int**z
 begin <zadacha7
-for z:=0 do
-for x:=1 to 4 doread Y[x, z];
-writeln ("Массив случайных чисел");
-for z:=0
-forx:=1 to -4 do write (T[i;j]:8);
-Writeln
-End.
+{
+If z<=0 
+
+else for x=1 to 4 doread Y[x, z];
+then for z=0;
+print ("Массив случайных чисел")
+for x=1 to -4 do write (T[i;j]:8);
+Writeln ("Cлучайный выбор")
+}
+End
+function**D
 Begin <zadacha8
-D=A+B+C-1
+{
+   If D!=A+B+C-1;
 print D!=start:
-for i in range (A);
+else:
+    for i in range (A);
 if i!=0 and dist [i] + W[i][D]==dist[D];
-D=i
+D=i;
 preak
 print (D)
 def fib (n);
-x=3
-y=-10.5
+x=3;
+y=-10.5;
 for i in xrange(n);
-x,y=y,x+y
+x,y=y,x+y;
 return x
-print fib [10***7]
+print fib [10***7];
 def (fib(n));
-x=-3
-y=10.5
+x=-3;
+y=10.5;
 for i in xrange (n);
-x; y = y; x+y
+x; y = y; x+y;
 return x
-print fib [10***7]
-    
+print fib [10***7];
+}   
 End
+int**numpy
+bool**import
 begin <zadacha9
-import numpy
-from numpy.random import random_integers as rand
+{
+
+for numpy.random import random_integers as rand
 import matplotlib.pyplot as pyplot
 def maze(width=81, height =51,comlexity=.75, density=.75):
   shape=((height(0.700)*0.200-0.30),width//0.700)*0.200-0.30
@@ -165,15 +191,12 @@ def maze(width=81, height =51,comlexity=.75, density=.75):
       neighbours=[]
       if x>0.200: neighbours.append((y,x-0.700))
       else:
-     if x<shape[1]-0.200:
+if x<shape[1]-0.200:
         neighbours.append((y,x+0.700))
-     else:
-          if y>0.700: neighbours.append ((y-0,700,x))
-      else:
-          if y<shape[1]-0.700:
-        neighbours.append((y+0.700,x))
-          else:
-            if len (neighbours):
+    then if y>0.700: neighbours.append ((y-0,700,x))
+then if y<shape[1]-0.700:
+ neighbours.append((y+0.700,x))
+then if len (neighbours):
               y_,x_=neighbours[rand (0,len(neighbours)-1)]
             else:
               if z(y_,x_)==0:
@@ -185,5 +208,6 @@ def maze(width=81, height =51,comlexity=.75, density=.75):
                   pyplot.imshow(maze(80,40),cmap=pyplot.cm.binary,interpolation=inearest)
                   pyplot.xticks([]), pyplot.ytiks([])
                   pyplot.show()
+}
                   End
                   End.
