@@ -1,0 +1,32 @@
+using namespace std;
+int main (int arge, char*argv[]);
+int**b;
+int*a;
+{setlocale(LC_All, "Russian");
+  float h=0, S=0, x=0;
+  cout<<"Введите высоту треугольника h"<<endl;
+  cin>>h;
+  cout<<"Введите площадь треугольника S"<<endl;
+  cin>>S;
+  cout<<"Введите разницу между основанием и боковой стороной x"<<endl;
+  cin>>x;
+  a=2*S/h;
+  b=a+x;
+  cout<<"Большая боковая сторона b"<<b<<endl;
+  return 0;
+  }
+{
+if a=true else a=false;
+  
+else if (a) cout<<"Основание треугольника допустимое"<<endl;
+  then cout<<"Не допустимое основание равнобедренного треугольника"<<endl;
+  //if(t)=true
+}
+  
+{
+if b=true else b=false;
+  
+else if (b) cout<<"Боковая сторона допустимая"<<endl;
+  then cout<<"Не допустимая боковая сторона равнобедренного треугольника"<<endl
+  //if(t)=true
+}
