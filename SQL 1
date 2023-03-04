@@ -1,0 +1,81 @@
+ class 
+   int stmtbuf
+   int colcount
+int querytbl
+  int from
+  int SQLNT
+int table_name
+   {/*Эта программа запрашивает у пользователя имя команды и перечень лучших футболистов, которых он хочет узнать. После этого программа формирует и выполняет запрос и отображает его результаты.*/
+SQLHENN env_hdl;
+SQLHDBC conn_hdl;
+SQLHSTMT stmt1_hdl;
+SQLHSTMT stmt2_hdl;
+SQLHSTMT stmt3_hdl;
+SQLHSTMT stmt4_hdl;
+SQLRETURN status;
+SQLCHAR svr_name="demo";
+SQLCHAR user_name = "joe";
+SQLCHAR user_pswf = "xyz";
+char stmtbuf_2001;
+char stmt2buf_2001;
+char querytbl_32;
+char querycol_32;
+int first_col = 0;
+SQLSMALLINT colcount;
+SQLCHAR nameptr;
+SQLSMALLINT namelen;
+SQLSMALLINT type;
+SQLSMALLINT size;
+SQLSMALLINT digits;
+SQLSMALLINT nullable;
+short i;
+char inbuf_101;
+SQLCHAR item_name_100;
+SQLCHAR item_data_100;
+int item_ind_100;
+SQLSMALLINT item_type_100;
+SQLCHAR dataptr;
+SQLAllocHandle (SQL_HANDLE_ENV conn_hdl, SQLNULL_HANDLE env_hdl);
+SQLAllocHandle (SQL_HAHDLE_DBC env_hdl, SQLHANDLE_DBC conn_hdl);
+SQLAllocHadle (SQL_NANDLE_DBC env_hdl, SQLHANDLE_DBC conn_hdl);
+SQLAllocHandle (SQLHANDLE_STMT conn_hdl, SQLHANDLE_STMT stmt1_hdl);
+SQLAllocHandle
+  (SQLHANDLE_STMT conn_hdl, SQLHaNDLE_STMT stmt2_hl);
+SQLConnect (conn_hdl svr_name, SQL_NTS user_pswd, SQL_NTS stmt2_hdl)
+/*Спрашиваем у пользователя из какой таблицы он хочет извлечь данные*/
+  printf("***Программа формирования запросов***\n");
+printf("Введите имя компнды для запроса:");
+  gets (querytbl);
+/*Начинаем формирование инструкции*/
+  SELECT "в буфере" stropy (stmtbut,"select");
+/*Запрашиваем имена футболистов*/
+strepy (stmt2buf, "select column_name from colums where" table_name="");
+strcat (stmt2buff,querytbl);
+SQLExecDirect (stmt2_hdl, stml2buf,SQLNTS);
+/*Обрабатываем результаты запроса*/
+  SQLBindCol (stmt2_hdl,1,SQL_C_CHAR,querycol, 31,(int)0);
+while (status = SQLFetch (stmt2_hdl)==SQL_SUCCESS)
+  
+printf("Включить столбец %S(y/n)?",querycol);
+gets (inbuf);
+if (inbuf[0]="y")
+
+  /*Пользователь выбрал лучшего футболиста, включаем его */
+  if (first_col++>0)
+    strcat (stmtbuf, ",");
+  strcat(stmtbuf,",");
+  strcat (stmtbuf,querycol);
+    
+     
+strcat(stmtbuf from);
+strcat(stmtbuf querytbl);
+SQLExecDirect (stmt1_hdl SQLNTS,stmtbuf  SQLNTS);
+SQLNumResult(stmt1_hdl colcount);
+for (i=0; i<colcount; i++)
+                                                           
+                                                      item_name [i]=nameptr==malloc [32];
+                                                             indpiz = item_ind(i);
+                                                             SQLDescribeCol(stmt1_hdl, i, nameptr,32, namelen, type, size, digits, nullable);
+                                                             Switch Ltype;
+     }
+end class.
