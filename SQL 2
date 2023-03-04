@@ -1,0 +1,74 @@
+class Main {
+ public
+  SQLSMALLINT (SQLNumResultcols),
+  SQLINTEGER stmtHdl,
+  SQLSMALLINT *colcount),
+  /*Получение характеристик столбуа таблицы результатов запроса*/
+  SQLSMALLINT SQLDescribecol),
+  SQLINTEGER stmtHdl,
+  /*Входной: дескиптор инструкции*/
+  SQLSMALLINT colNr,
+  /*Входной: номер столбца, о котором нужна информация*/
+  SQLCHAR *colName,
+  /*Выходной: имя столбца*/
+  SQLSMALLINT bufLen,
+  SQLSMALLINT *nameLen,
+  SQLSMALLINT *colType,
+  SQLSMALLINT *colSize, 
+  SQLSMALLINT *decDigits, 
+  SQLSMALLINT *nullable)
+  /*Получение информации об указанном атрибуте столбца в таблице результатов запроса*/
+  SQLSMALLINT SQLCol attribute),
+  SQLINTEGER stmtude,
+  SQLSMALLINT *colNr,
+  SQLSMALLINT attrcode, 
+  SQLCHAR *attrInfo,
+  SQLSMALLINT *bufLen,
+  SQLSMALLINT *actLen,
+  SQLINTEGER *numAttr)
+  /*Получение значений набора полей из описателя GLI*/
+  SQLSMALLINT SQLGeR DescRec),
+  SQLINTEGER descHdl,
+  SQLSMALLINT recNr,
+  SQLCHAR *name, 
+  SQLSMALLINT recNr, 
+  SQLCHAR *name, 
+  SQLSMALLINT bufLen,
+  SQLSMALLINT *namLen, 
+  SQLSMALLINT *dataType, 
+  SQLSMALLINT *subType, 
+  SQLSMALLINT *length, 
+  SQLSMALLINT *precis, 
+  SQLSMALLINT *scale,
+  SQLSMALLINT *nullable),
+  /*Установка значений набора полей в описателе GET*/
+  SQLSMALLINT SQLSet DescRec/
+  SQLINTEGER descHdl, 
+  SQLSMALLINT recNr,
+  SQLSMALLINT dataType,
+  SQLSMALLINT dataType, 
+  SQLSMALLINT subType, 
+  SQLSMALLINT length,
+  SQLSMALLINT precis, 
+  SQLSMALLINT scale, 
+  void *daraRuf, 
+  SQLSMALLINT bufLen,
+  SQLSMALLINT *indBuff,
+  /*Получение значения указанного поля из описателя GLI*/
+  SQLSMALLINT SQLGet DescField),
+  SQLINTEGER descHdl, 
+  SQLSMALLINT attrCode,
+  void *attrInfo,
+  SQLSMALLINT bufLen),
+  /*Копирует содержимое одного описателя GTI в другой */
+  SQLSMALLINT SQLCopy Besc),
+  SQLINTEGER inDscHdl,
+  SQLINTEGER outDecHdl,
+  
+}
+end class.
+  
+    
+  
+  
+  }
