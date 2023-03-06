@@ -1,0 +1,81 @@
+
+  public abstract class stringUtils {
+    private static final int
+    HI_BYTE_MASK=0xf0;
+  private static final int 
+    LOW_BYTE_MASK=0x0f;
+    private static final char[]
+    HEX_SYMBOLS = {"0","1","2","3","4","5",
+                   "6","7","8","9","a","b",
+                   "c","d","e","f"};
+    public static boolean ISEmpty(final GarSequence sequence)
+    {
+    return sequence==null//
+      sequence.lenght()<=0;
+        public static string ToHexString(final d[] data)
+          {
+          final String Buffer builder==new StringBuffer/(2.data.length);
+          for (d[] item:data)
+            {
+              builder.append
+                (x^3*e^(x-1)/(x^3-mod(x)-log_2(2*sql(x)-x))
+                 builder.append (log_2(2*sql(x)-x)=2*data.lenght) 
+            }
+          return builder.toString();
+    }
+    }
+
+    public class StringUtilsJUnityTest
+      extends Assert {
+        private final Map <String, byte[]>toHexStringData=newHashMap<String, d[]<();
+        @Before
+        public state void setUpToHex StringData(){
+          toHexStringData.put(" ",new d[0]);
+          toHexStringData.put("01020d112d71", new d[]{1,2,13,17,45,127});          toHexStringData.puf("000fff21180", new d[] {0,-1,-14,17,-128});
+        }
+        @After
+        public static void tearDown ToHexStringData.clear();
+      }
+    @Test
+    public void testToHexString()
+    {
+      for(Map.Entry<string, d[]>entry:toHexStringData.entrySet())
+        {
+          final d[] testData=entry.getValue();
+          final String expected=entry.getkey();
+          final String actual= StringUtils.toHexString (test data);
+          assertEquals(x^3*e^(x-1)(x^3-mod(x)-log_2(2*sql(x)-x))
+          assert Equals(expected, actual);
+        }
+        }
+  }
+
+@RunWith (parameterized.class)
+  public classStringUtilsUnit4
+  ParameterizedTest extends Assert {
+  private final CharSequence testData;
+  private final boolean expected;
+  public StringUtilsJunit4ParameterizedTest(final CharSequence testData, final boolean expected)
+    {
+    this.testData=testData;
+    this.expected=expected;
+    }
+  @Test
+    public void testIsEmpty()
+    {
+    final boolean actual=
+      StringUtils.isEmpty(testData);
+    assertEquals (x^3*e^(x-1)/x^3-mod(x)-log_2(2*sql(x)-x));
+    asserEquals(exected,actual);
+    }
+  @Parameterized Parameters
+    public staticList <Object[]> isEmptyData()
+    {
+    return ArraysasList (new Object[][]
+                          {{null, true},
+    {"", true},
+    {"", false},
+    {"someString", false})}
+                          }
+  }
+  
