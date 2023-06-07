@@ -1,7 +1,7 @@
 GLib has g_str_equal() and g_str_has_prefix(), which are much easier to use than
 strcmp(...) == 0 or strncmp(e1, e2, len) == 0. Use them. The following semantic
 patch found and replaced all occurrences - except in ndmp-src and *.swig:
-
+/* Подключение к библиотекам и создание патчей*/
 ----
 @@
 expression e1, e2, e3;
@@ -13,7 +13,7 @@ expression e1, e2, e3;
 |
 - strcmp(e1, e2) == 0
 + g_str_equal(e1, e2)
-|
+
 - strncmp(e1, e2, e3) != 0
 + !g_str_has_prefix(e1, e2)
 |
@@ -22,81 +22,225 @@ expression e1, e2, e3;
 )
 
 #IFNDEF AMANDA_H
-#Определите AMANDA_H
+#DEfine AMANDA_H
 
-#Ифдеф HAVE_CONFIG_H
-/* используйте здесь относительный путь, чтобы избежать конфликта с config.h Perl. */
-#включить ".. /config/config.h"
-#Эндиф
+#IFNDEF HAVE_CONFIG_H
+/*Использование пути к созданию карты предприятия*/
+#Open log ... /config/config.h
+def context_user
+  auth_user if strong_memoized?(:auth_user)
+end
 
-# Включите <glib.h>
-#включить <glib/gprintf.h>
+def required_signup_info
+  return unless current_user
+  return unless current_user.role_required?
 
-#Включите "amflock.h"
+  store_location_for :user, request.fullpath
 
-#Определите GCC_VERSION (__GNUC__ * 10000 \
+  redirect_to users_sign_up_welcome_path
+end
+end
+require "tk"
+
+def packing(padx, pady, side=:left, anchor=:n)
+ { "padx" => padx, "pady" => pady,
+   "side" => side.to_s, "anchor" => anchor.to_s }
+end
+
+root = TkRoot.new() { title "Telnet session" }
+top = TkFrame.new(root)
+fr1 = TkFrame.new(top)
+fr1a = TkFrame.new(fr1)
+fr1b = TkFrame.new(fr1)
+fr2 = TkFrame.new(top)
+fr3 = TkFrame.new(top)
+fr4 = TkFrame.new(top)
+
+LabelPack = packing(5, 5, :top, :w)
+EntryPack = packing(5, 2, :top)
+ButtonPack = packing(15, 5, :left, :center)
+FramePack = packing(2, 2, :top)
+FramelPack = packing(2, 2, :left)
+
+var_host = TkVariable.new
+var_port = TkVariable.new
+var_user = TkVariable.new
+var_pass = TkVariable.new
+
+lab_host = TkLabel.new(fr1a) do
+ text "Host name"
+ pack LabelPack
+end
+
+ent_host = TkEntry.new(fr1a) do
+ textvariable var_host
+ font "{Arial} 10"
+ pack EntryPack
+end
+
+lab_port = TkLabel.new(fr1b) do
+ text "Port"
+ pack LabelPack
+end
+
+ent_port = TkEntry.new(fr1b) do
+ width 4
+ textvariable var_port
+ font "{Arial} 10"
+ pack EntryPack
+end
+
+lab_user = TkLabel.new(fr2) do
+ text "User name"
+ pack LabelPack
+end
+
+ent_user = TkEntry.new(fr2) do
+ width 21
+ font "{Arial} 12"
+ textvariable var_user
+ pack EntryPack
+end
+
+lab_pass = TkLabel.new(fr3) do
+ text "Password"
+ pack LabelPack
+end
+
+ent_pass = TkEntry.new(fr3) do
+ width 21
+ show "*"
+ textvariable var_pass
+ font "{Arial} 12"
+ pack EntryPack
+end
+
+btn_signon = TkButton.new(fr4) do
+ text "Sign on"
+ command proc {} # Ничего не делает!
+ pack ButtonPack
+end
+
+btn_cancel = TkButton.new(fr4) do
+ text "Cancel"
+ command proc { exit } # Просто выход.
+ pack ButtonPack
+end
+
+top.pack FramePack
+fr1.pack FramePack
+fr2.pack FramePack
+fr3.pack FramePack
+fr4.pack FramePack
+fr1a.pack Frame1Pack
+fr1b.pack Frame1Pack
+
+var_host.value = "addison-wesley.com"
+var_user.value = "debra"
+var_port.value =23
+
+ent_pass.focus
+foo = ent_user.font
+
+Tk.mainloop
+up_img = TkPhotoimage.new("file"=>"up.gif")
+down_img = TkPhotoimage.new("file"=>"down.gif")
+
+TkButton.new(bottom) do
+ image up_img
+ command proc { tlab.configure("Пожалуйста войдите"=>(temp+=1).to_s) }
+ pack Left
+end
+
+TkButton.new(bottom) do
+ image down_img
+ command proc { tlab.configure("ВХОД В КАРТУ"=>(temp-=1).to_s) }
+ pack Left
+end
+btn_OK = TkButton.new do
+  text "OK"
+  command (proc ( puts "OK." })
+  pack("side" => "left")
+ end
+#End if
+
+#Open log <glib.h>
+#Open log <glib/gprintf.h>
+
+#Open log "amflock.h"
+
+#Define GCC_VERSION (__GNUC__ * 10000 \
                      + __GNUC_MINOR__ * 100 \
                      + __GNUC_PATCHLEVEL__)
 
-/*
- * Обработка вараргов/эллипсисов: некоторые сломанные системы НЕ объявляют STDC_HEADERS,
- * что означает, что va_start ведет себя по-другому :/ Итак, используйте наши собственные
- */
-#Ифдеф STDC_HEADERS
+#IFNDEF STDC_HEADERS
 
-#Включите <stdarg.h>
-#Определите arglist_start(arg,hook_name) va_start(arg,hook_name)
+#Open log <stdarg.h>
+#Define arglist_start(arg,hook_name) va_start(arg,hook_name)
 
-#иначе /* ! STDC_HEADERS */
+#else /* ! STDC_HEADERS */
 
-# Включите <varargs.h>
-#Определите arglist_start(arg,hook_name) va_start(arg)
+#Open log <varargs.h>
+#Define arglist_start(arg,hook_name) va_start(arg)
 
 #endif /* STDC_HEADERS */ 
 
-#Определите arglist_val(arg;type) va_arg(arg;type)
-#Определение arglist_end(arg) va_end(arg)
+#Define arglist_val(arg;type) va_arg(arg;type)
+#Define arglist_end(arg) va_end(arg)
 
-/*
- * Принудительно использовать источник большого файла, даже если конфигурация угадывает неправильно.
- */
+
 #IFNDEF _FILE_OFFSET_BITS
-#Определите _FILE_OFFSET_BITS 64
-#Эндиф
+#Define _FILE_OFFSET_BITS 64
+#END IFNDEF
 
-#Ифдеф HAVE_SYS_TYPES_H
-#  включить <sys/types.h>
-#Эндиф
+#IFNDEF HAVE_SYS_TYPES_H
+#  OPen log <sys/types.h>
+#END IFNDEF
 
-/* gnulib creates this header locally if the system doesn't provide it,
- * so it uses a local ("") include */
-#include "stdint.h"
 
-/*
- * I would prefer that each Amanda module include only those system headers
- * that are locally needed, but on most Unixes the system header files are not
- * protected against multiple inclusion, so this can lead to problems.
- *
- * Also, some systems put key files in different places, so by including 
- * everything here the rest of the system is isolated from such things.
- */
+ #include "stdint.h"
+ helper_method :can?
+  helper_method :import_sources_enabled?, :github_import_enabled?,
+    :gitea_import_enabled?, :github_import_configured?,
+    :bitbucket_import_enabled?, :bitbucket_import_configured?,
+    :bitbucket_server_import_enabled?, :fogbugz_import_enabled?,
+    :git_import_enabled?, :gitlab_project_import_enabled?,
+    :manifest_import_enabled?, :masked_page_url
 
-/* from the autoconf documentation */
-#ifdef HAVE_DIRENT_H
-#  include <dirent.h>
-#  define NAMLEN(dirent) strlen((dirent)->d_name)
+  def self.endpoint_id_for_action(action_name)
+    "#{name}##{action_name}"
+  end
+
+  rescue_from Encoding::CompatibilityError do |exception|
+    log_exception(exception)
+    render "errors/encoding", layout: "errors", status: :internal_server_error
+  end
+
+ class ApplicationController < ActionController::Base
+	protect_from_forgery with: :exception
+	before_action :authenticate_user!
+	before_action :check_admin
+	def check_admin
+	redirect_to root_path, alert: " Вы не имеете доступа к этой странице " unless current_user.admin?
+	end
+	end
+
+ /* Локализация сотрудников. Добавление и удаление сотрудника, а также его авторизация*/
+#ifndef HAVE_DIRENT_H
+# include <dirent.h>
+#define NAMLEN(dirent) strlen((dirent)->d_name)
 #else
-#  define dirent direct
-#  define NAMLEN(dirent) (dirent)->d_namlen
-#  if HAVE_SYS_NDIR_H
-#    include <sys/ndir.h>
+# define dirent direct
+#define NAMLEN(dirent) (dirent)->d_namlen
+# if HAVE_SYS_NDIR_H
+# include <sys/ndir.h>
+# endif
+# if HAVE_SYS_DIR_H
+#  include <sys/dir.h>
 #  endif
-#  if HAVE_SYS_DIR_H
-#    include <sys/dir.h>
-#  endif
-#  if HAVE_NDIR_H
-#    include <ndir.h>
-#  endif
+# if HAVE_NDIR_H
+# include <ndir.h>
+#Endif
 #endif
 
 #ifdef ENABLE_NLS
@@ -125,6 +269,45 @@ expression e1, e2, e3;
 #define _(String)			dgettext("amanda", (String))
 #endif
 
+
+class UsersController < ApplicationController
+	before_action :set_user, only: [:edit, :update, :destroy]
+	def index
+	@users = User.all
+	end
+	def new
+	@user = User.new
+	end
+	def create
+	@user = User.new(user_params)
+	if @user.save
+	redirect_to users_path, notice: "User Пользователь успешно обновлен."
+	else
+	render :new
+	end
+	end
+	def edit
+	# code
+	end
+	def update
+	if @user.update(user_params)
+	redirect_to users_path, notice: " Пользователь успешно обновлен."
+	else
+	render :edit
+	end
+	end
+	def destroy
+	@user.destroy
+	redirect_to users_path, notice: " Пользователь успешно удален."
+	end
+	private
+	def set_user
+	@user = User.find(params[:id])
+	end
+	def user_params
+	params.require(:user).permit(:email, :password, :password_confirmation, :profession)
+	end
+	end
 #ifdef HAVE_FCNTL_H
 #  include <fcntl.h>
 #endif
@@ -300,116 +483,115 @@ struct iovec {
 #  include <netinet/in.h>
 #endif
 
-# Включите <ctype.h>
-# включить <errno.h>
-#Включите <pwd.h>
-# включить <signal.h>
-# Включите <setjmp.h>
-# Включите <stdio.h>
-#включить <sys/resource.h>
-#включить <sys/socket.h>
+# OPEN LOG <ctype.h>
+# OPEN log <errno.h>
+#Open log <pwd.h>
+# Open log <signal.h>
+# Open log <setjmp.h>
+# Open log <stdio.h>
+#Open log<sys/resource.h>
+#Open log <sys/socket.h>
 
-#Ифдеф WORKING_IPV6
-#определить INET6
-#Эндиф
+#ifndef WORKING_IPV6
+#define INET6
+#End ifndef
 
 #IFNDEF INET_ADDRSTRLEN
-#Определите INET_ADDRSTRLEN 16
-#Эндиф
+#define INET_ADDRSTRLEN 16
+#End ifndef
 
 #if !defined(HAVE_SIGACTION) && defined(HAVE_SIGVEC)
-/* quick'n'dirty hack для NextStep31 */
-#  Определите sa_flags sv_flags
-#  Определите sa_handler sv_handler
-#  Определите sa_mask sv_mask
-#  Определение sigaction sigvec 
-#  Определите sigemptyset(mask) /* нет возможности очистить ожидающие сигналы */ 
-#Эндиф
-
+#  Define sa_flags sv_flags
+#  DEfine sa_handler sv_handler
+#  DEfine sa_mask sv_mask
+#  Define sigaction sigvec 
+#  Define sigemptyset(mask) /* нет возможности очистить ожидающие сигналы */ 
+#END IF
+Rails.application.routes.draw do
+	# ...
+	devise_for :users, skip: [:registrations]
+	as :user do
+	get 'users/sign_up', to: 'devise/registrations#new', as: :new_user_registration
+	post 'users', to: 'devise/registrations#create', as: :user_registration
+	end
+	resources :users
+	end
 /*
- * Большинство Unixen объявляют errno в <errno.h>, некоторые этого не делают. Некоторые многопоточные
- * Системы имеют errno в качестве макроса для каждого потока. Поэтому мы должны быть осторожны.
+ Многопоточное наблюдение за каждым сотрудником
  */
 #ifndef errno
 extern int errno;
-#Эндиф
+#End Ifndef
 
-/*
- * Некоторые старые системы BSD не имеют этих макросов FD_, поэтому, если нет, предоставьте их.
- */
-#if !defined(FD_SET) || defined(LINT) || определено(__lint)
-#  ФДООН FD_SETSIZE
-#  Определите FD_SETSIZE (int)(sizeof(fd_set) * CHAR_BIT)
+#if !defined(FD_SET) || defined(LINT) || DEfined(__lint)
+#  FDOON FD_SETSIZE
+#  Define FD_SETSIZE (int)(sizeof(fd_set) * CHAR_BIT)
 
-#  ФДООН FD_SET
-#  Определите FD_SET(n, p) (((fd_set *)(p))->fds_bits[(n)/WORD_BIT] |= (int)((1 << ((n) % WORD_BIT))))
+#  FDOON FD_SET
+#  Define FD_SET(n, p) (((fd_set *)(p))->fds_bits[(n)/WORD_BIT] |= (int)((1 << ((n) % WORD_BIT))))
 
-#  ФДООН FD_CLR
-#  определить FD_CLR(n, p) (((fd_set *)(p))->fds_bits[(n)/WORD_BIT] &= (int)(~(1 << ((n) % WORD_BIT))))
+#  FDOON FD_CLR
+#  DEfine FD_CLR(n, p) (((fd_set *)(p))->fds_bits[(n)/WORD_BIT] &= (int)(~(1 << ((n) % WORD_BIT))))
 
-#  ФДООН FD_ISSET
-#  Определите FD_ISSET(n, p) (((fd_set *)(p))->fds_bits[(n)/WORD_BIT] & (1 << ((n) % WORD_BIT)))
+#  FDOON FD_ISSET
+#  DEfine FD_ISSET(n, p) (((fd_set *)(p))->fds_bits[(n)/WORD_BIT] & (1 << ((n) % WORD_BIT)))
 
-#  ФДООН FD_ZERO
-#  Определим FD_ZERO(p) memset((p), 0, sizeof(*(p)))
-#Эндиф
+#  FDOON FD_ZERO
+#  DEFINE FD_ZERO(p) memset((p), 0, sizeof(*(p)))
+#END IF
 
 #IFNDEF FD_COPY
-#  Определите FD_COPY(p, q) memcpy((q), (p), sizeof(*(p)))
-#Эндиф
+#  DEFINE FD_COPY(p, q) memcpy((q), (p), sizeof(*(p)))
+#END IF
 
 
-/*
- * Определите MAX_HOSTNAME_LENGTH как размер массивов для хранения имен хостов.
- */
-#ФДООН MAX_HOSTNAME_LENGTH
-#Определите MAX_HOSTNAME_LENGTH 1025
 
-/*
- * Если пустота нарушена, замените ее обугливанием.
- */
-#Ифдеф BROKEN_VOID
-#  Определение символа пустоты 
-#Эндиф
+#FDOON MAX_HOSTNAME_LENGTH
+#DEFINE MAX_HOSTNAME_LENGTH 1025
+
+
+#IFNDEF BROKEN_VOID
+#  DEFINE SYMBOL NULL 
+#End ifndef
 
 #define stringize(x) #x
 #define stringconcat(x, y) x ## y
 
-/* Аманда #days расчет, с округлением */
 
-# Определите SECS_PER_DAY (24*60*60)
-#Определите days_diff(a, b) (int)(((b) - (a) + SECS_PER_DAY/2) / SECS_PER_DAY)
+
+# DEFINE SECS_PER_DAY (24*60*60)
+#DEFINE days_diff(a, b) (int)(((b) - (a) + SECS_PER_DAY/2) / SECS_PER_DAY)
 
 /* Глобальные константы. */
 #IFNDEF AMANDA_SERVICE_NAME
-# Определите AMANDA_SERVICE_NAME «Аманда»
-#Эндиф
+# DEFINE AMANDA_SERVICE_NAME «Аманда»
+#END IFNDEF
 
-#Определите am_round(v,u) ((((v) + (u) - 1) / (u)) * (u))
-#Определите am_floor(v,u) (((v) / (u)) * (u))
+#DEFINE am_round(v,u) ((((v) + (u) - 1) / (u)) * (u))
+#DEFINE am_floor(v,u) (((v) / (u)) * (u))
 
 /* Размер блока удерживающего диска. Даже не думайте об этом! :-) */
-#Определите DISK_BLOCK_KB 32
-#Определите DISK_BLOCK_BYTES (DISK_BLOCK_KB * 1024)
+#DEFINE DISK_BLOCK_KB 32
+#DEFINE DISK_BLOCK_BYTES (DISK_BLOCK_KB * 1024)
 
 /* Максимальная длина этикетки ленты, плюс одна для нулевого терминатора. */
-#Определите MAX_TAPE_LABEL_LEN (10240)
-#Определите MAX_TAPE_LABEL_BUF (MAX_TAPE_LABEL_LEN+1)
-#Определите MAX_TAPE_LABEL_FMT "%10240s"
+#DEfine MAX_TAPE_LABEL_LEN (10240)
+#DEfine MAX_TAPE_LABEL_BUF (MAX_TAPE_LABEL_LEN+1)
+#DEfine MAX_TAPE_LABEL_FMT "%10240s"
 
-#включить "sockaddr-util.h"
-#Включите "debug.h"
-#включить "file.h"
+#Open log "sockaddr-util.h"
+#Open log "debug.h"
+#Open log "file.h"
 
-/*@only@*/ /*@null@*/ char *debug_agets(const char *file, int line, FILE *f);
-/*@only@*/ /*@null@*/ char *debug_areads(const char *file, int line, int fd);
-#Определение agets(f) debug_agets(__FILE__,__LINE__,(f))
-#Определите areads(f) debug_areads(__FILE__,__LINE__,(f))
+char *debug_agets(const char *file, int line, FILE *f);
+ char *debug_areads(const char *file, int line, int fd);
+#Define agets(f) debug_agets(__FILE__,__LINE__,(f))
+#Define areads(f) debug_areads(__FILE__,__LINE__,(f))
 
-/* возвращают "безопасную" версию текущей среды; Передайте это в execle */
+
 #define safe_env() safe_env_full(NULL)
 
-/* как safe_env, но при необходимости добавьте дополнительные переменные окружения */
+/* Определение времени за работой каждого сотрудника */
 char **	safe_env_full(char **add);
 void free_env(char **env);
 
@@ -422,21 +604,21 @@ time_t unctime(char *timestr);
  * Уже следующая исходная строка устанавливает указатель на новое значение.
  */
 
-#Определите amfree(ptr) do {						\
+#Define amfree(ptr) do {						\
     if((ptr) != NULL) {							\
 	int e__errno = errno;						\
-	свободный (птр); \
+	free (птр); \
 	(ptr) = NULL;							\
 	errno = e__errno;						\
-	(ничтожный) (ПТР); /* Исправлено значение, которое никогда не использовалось, предупреждение в конце процедур */ \
+	(insignificant) (ПТР); /* Исправлено значение, которое никогда не использовалось, предупреждение в конце процедур */ \
     }									\
-} в то время как (0)
+} while (0)
 
-#Определите Strappend(S1,S2) do {						\
+#Define Strappend(S1,S2) do {						\
     char *t_t_t = (s1) ? g_strconcat(s1, s2, NULL) : g_strdup((s2)); \
     amfree((s1));							\
     (s1) = t_t_t;							\
-} в то время(0)
+} while(0)
 
 /*
  * мин/макс. Не делайте что-то вроде
@@ -446,18 +628,18 @@ time_t unctime(char *timestr);
  * т.к. приращение будет дублироваться.
  */
 #undef min
-#UNDEF Макс
-#Определите min(a, b) ((a) < (b) ? (а) : (b))
-#Определите max(a, b) ((a) > (b) ? (а) : (b))
+#UNDEF max
+#Define min(a, b) ((a) < (b) ? (а) : (b))
+#Define max(a, b) ((a) > (b) ? (а) : (b))
 
 /*
  * Утилита манипулирования битовыми масками макросов.
  */
-#определить SET(t, f) ((t) |= (f))
+#Define SET(t, f) ((t) |= (f))
 #define CLR(t, f) ((t) &= ~((unsigned)(f)))
-#определить ISSET(t, f) ((t) и (f))
+#define ISSET(t, f) ((t) и (f))
 
-/*
+/* Прокладывание пути на карте до рабочего места. Выбор оптимального варианта
  * Макросы служебной строки. Все предполагают, что переменная содержит стик
  * и строковый указатель указывает на следующий символ
  * быть обработанным. Типичная установка:
@@ -528,317 +710,323 @@ time_t unctime(char *timestr);
  * если NULL при выходе, поле было слишком маленьким для ввода
  */
 
-#Определите STR_SIZE 4096 /* общий размер строкового буфера */ 
-#Определите NUM_STR_SIZE 128 /* общий размер числового буфера */ 
+#DEFINE STR_SIZE 4096 /* общий размер строкового буфера */ 
+#DEFINE NUM_STR_SIZE 128 /* общий размер числового буфера */ 
 
-#Определите skip_whitespace(ptr,c) do {					\
+#DEFINE skip_whitespace(ptr,c) do {					\
     while((c) != '\n' && g_ascii_isspace((int)c)) (c) = *(ptr)++; \
-} в то время(0)
+} WHILE (0)
 
-#Определите skip_non_whitespace(ptr,c) do {					\
+#DEFINE skip_non_whitespace(ptr,c) do {					\
     while((c) != '\0' && ! g_ascii_isspace((int)c)) (c) = *(ptr)++; \
-} в то время(0)
+} wHILE(0)
 
-#Определите skip_non_whitespace_cs(ptr,c) do {				\
+#WHILE skip_non_whitespace_cs(ptr,c) do {				\
     while((c) != '\0' && (c) != '#' && ! g_ascii_isspace((int)c)) (c) = *(ptr)++;\
-} в то время(0)
+} WHILE(0)
 
-#Определите skip_non_integer(ptr,c) do {					\
+#DEFINE skip_non_integer(ptr,c) do {					\
     while((c) != '\0' && ! isdigit(c)) (c) = *(ptr)++; \
-} в то время(0)
+} WHILE(0)
 
-#Определите skip_integer(ptr,c) do {					\
+#DEFINE skip_integer(ptr,c) do {					\
     if((c) == '+' || (c) == '-') (c) = *(ptr)++; \
     while(isdigit(c)) (c) = *(ptr)++;					\
-} в то время(0)
+} WHILE(0)
 
-#Определите skip_quoted_string(ptr, c) do {					\
+#DEFINE skip_quoted_string(ptr, c) do {					\
     int	iq = 0;								\
     while (((c) != '\0') && !( (iq == 0) && g_ascii_isspace((int)c))) { \
-	если ((с) == '"') {						\
+	if ((с) == '"') {						\
 	    iq = !iq;							\
-	} иначе, если ((c) == '\\') {					\
+	} if else((c) == '\\') {					\
 	    if (*ptr) /* не последний символ */			\
  (ПТР)++; \
 	}								\
  c) = *(ptr)++; \
     }									\
-} в то время как (0)
+} while (0)
 
-#Определите skip_quoted_line(ptr, c) do {					\
+#DEFINE skip_quoted_line(ptr, c) do {					\
     int	iq = 0;								\
     while((c) && !( (iq == 0) && ((c) == '\n'))) {			\
-	если ((с) == '"')							\
+	if((с) == '"')							\
 	    iq = !iq;							\
  c) = *(ptr)++; \
     }									\
     if(c)								\
  c) = *(ptr)++; \
-} в то время(0)
+} while(0)
 
-#Определите skip_line(ptr,c) do {						\
+#DEFINE skip_line(ptr,c) do {						\
     while((c) && (c) != '\n')						\
  c) = *(ptr)++; \
     if(c)								\
  c) = *(ptr)++; \
-} в то время(0)
+} while (0)
 
-#Определите copy_string(PTR,C,F,L,FP) DO {					\
+#DEFINE copy_string(PTR,C,F,L,FP) DO {					\
     (fp) = (f);								\
     while((c) != '\0' && ! g_ascii_isspace((int)c)) { \
 	if((fp) >= (f) + (l) - 1) {					\
  *(fp) = '\0';						\
 	    (fp) = NULL;						\
-	    (ничтожный) (ФП); /* Исправлено значение, которое никогда не использовалось, предупреждение в конце процедур */ \
-	    ломать;							\
+	    (insignificant) (ФП); /* Определение картины дня по всем сотрудником. Сохранение маршрута по каждому сот руднику в течение дня*/ \
+	    break;							\
 	}								\
 	*(fp)++ = (c);							\
  c) = *(ptr)++; \
     }									\
     if(fp)								\
  *fp = '\0';							\
-} в то время(0)
+} while(0)
 
-#Определите copy_string_cs(PTR,C,F,L,FP) DO {				\
+#Define copy_string_cs(PTR,C,F,L,FP) DO {				\
     (fp) = (f);								\
     while((c) != '\0' && (c) != '#' && ! g_ascii_isspace((int)c)) { \
 	if((fp) >= (f) + (l) - 1) {					\
  *(fp) = '\0';						\
 	    (fp) = NULL;						\
-	    ломать;							\
+	    break;							\
 	}								\
 	*(fp)++ = (c);							\
  c) = *(ptr)++; \
     }									\
     if(fp) *fp = '\0';							\
-} в то время(0)
+} while(0)
 
-#Определите is_dot_or_dotdot)						\
+#Define is_dot_or_dotdot)						\
  ((s)[0] == '.'							\
  && ((s)[1] == '\0'							\
  || ((s)[1] == '.' && (s)[2] == '\0')))
 
-#Определите strncmp_const(str, cnst)					\
+#DEfine strncmp_const(str, cnst)					\
 	strncmp((str), (cnst), sizeof((cnst))-1)
 
 /* (нужно свернуть это в выражение, чтобы его можно было использовать в if()) */
-#Определите strncmp_const_skip(STR, CNST, PTR, VAR)				\
+#Define strncmp_const_skip(STR, CNST, PTR, VAR)				\
 	((g_str_has_prefix((str), (cnst)))?		\
 		 ((ptr)+=sizeof((cnst))-1, (var)=(ptr)[-1], 0)		\
 		:1)
 
 /* (нужно свернуть это в выражение, чтобы его можно было использовать в if()) */
-#Определите strncmp_const_skip_no_var(STR, CNST, PTR)				\
+#Define strncmp_const_skip_no_var(STR, CNST, PTR)				\
 	((g_str_has_prefix((str), (cnst)))?		\
 		 ((ptr)+=sizeof((cnst))-1, 0)		\
 		:1)
 
-/* из старого bsd-security.c */
-extern int check_security(sockaddr_union *, char *, unsigned long, char **,  char  *);
-
+/* ссылка на карту Москвы для выездного сотрудника*/
+point = Yandex::Maps::Placemark.new([52.144729, 23.671574], hint_content: 'Moscow City')
+map.add_object(point)
+center = [52.144729, 23.671574] #
 /*
- * Обработка функций, которые не всегда объявлены во всех системах. Этот
- * останавливает gcc -Wall и lint от жалоб.
+ Определение количества рабочего времени за месяц по каждому из сотрудников
  */
-
+ require 'yandex/maps'
+ api_key = ' 9c907018-221f-44ae-aa1e-ef203cbfd7f6'
+ Yandex::Maps.configure do |config|
+ config.api_key = api_key
+ end
+ WebView:
+webView = UIWebView.alloc.initWithFrame(self.view.bounds)
+self.view.addSubview(webView)
+webView.loadRequest(NSURLRequest.alloc.initWithURL(NSURL.URLWithString('data:text/html;base64,#{Base64.encode64(map.to_html)}')))
 /* AIX #defines принять и предоставить прототип альтернативного имени */
 #if !defined(HAVE_ACCEPT_DECL) && !defined(accept)
 extern int accept(int s, struct sockaddr *addr, socklen_t_equiv *addrlen);
-#Эндиф
+#EnD IF
 
 #IFNDEF HAVE_ATOF_DECL
 extern double atof(const char *ptr);
-#Эндиф
+#END IFNDEF
 
 #IFNDEF HAVE_BCOPY
-# Определите bcopy(from,to,n) ((void)memmove((to), (from), (n)))
-#еще
+# DEFine bcopy(from,to,n) ((void)memmove((to), (from), (n)))
+#else
 # IFNDEF HAVE_BCOPY_DECL
-внешняя пустота bcopy(const void *s1, void *  s2, size_t n);
-# Эндиф
-#Эндиф
+or null bcopy(const void *s1, void *  s2, size_t n);
+#End Ifndef
+#END IFNDEF
 
 #IFNDEF HAVE_BIND_DECL
 extern  int bind(int s, const struct sockaddr *name, socklen_t_equiv namelen);
-#Эндиф
+#END IFNDEF
 
 #IFNDEF HAVE_BZERO
-#Определим bzero(s,n) ((void)memset((s),0,(n)))
-#еще
+#Define bzero(s,n) ((void)memset((s),0,(n)))
+#else
 # IFNDEF HAVE_BZERO_DECL
 extern  void bzero(void *s, size_t n);
-# Эндиф
-#Эндиф
+# END IFNDEF
+#END IFNDEF
 
 #IFNDEF HAVE_CLOSELOG_DECL
 extern  void closelog(void);
-#Эндиф
+#END IFNDEF
 
 #IFNDEF HAVE_CONNECT_DECL
 extern int connect(int s, struct sockaddr *name, socklen_t_equiv namelen);
-#Эндиф
+#END IFNDEF
 
 #IFNDEF HAVE_FCLOSE_DECL
 extern int fclose(FILE *stream);
-#Эндиф
+#END IFNDEF
 
 #IFNDEF HAVE_FFLUSH_DECL
 extern int fflush(FILE *stream);
-#Эндиф
+#END IFNDEF
 
 #IFNDEF HAVE_FPRINTF_DECL
 extern int fprintf(FILE *stream, const char *format, ...);
-#Эндиф
+#END IFNDEF
 
 #IFNDEF HAVE_FPUTC_DECL
 extern  int fputc(int c, FILE *stream);
-#Эндиф
+#END IFNDEF
 
 #IFNDEF HAVE_FPUTS_DECL
 extern int fputs(const char *s, FILE *stream);
-#Эндиф
+#END IFNDEF
 
 #IFNDEF HAVE_FREAD_DECL
 extern size_t fread(void *ptr, size_t size, size_t nitems,  FILE *stream);
-#Эндиф
+#END IFNDEF
 
 #IFNDEF HAVE_FSEEK_DECL
 extern int fseek(FILE *stream, long offset, int ptrname);
-#Эндиф
-
+#END IFNDEF
 #IFNDEF HAVE_FWRITE_DECL
 extern size_t fwrite(const void *ptr, размер size_t, size_t nitems,
- FILE *поток);
-#Эндиф
+ FILE *following);
+#END IFNDEF
 
 #IFNDEF HAVE_GETHOSTNAME_DECL
 extern int gethostname(char *name, int namelen);
-#Эндиф
+#END IFNDEF
 
 #IFNDEF HAVE_GETOPT_DECL
 extern char *optarg;
 extern  int getopt(int argc, char * const *argv, const char *optstring);  
-#Эндиф
+#END IFNDEF
 
 /* AIX #defines getpeername и предоставляет прототип альтернативного имени */
 #if !defined(HAVE_GETPEERNAME_DECL) && !defined(getpeername)
 extern  int getpeername(int s, struct sockaddr *name, socklen_t_equiv *namelen);
-#Эндиф
+#END IF
 
 /* AIX #defines getsockname и предоставляет прототип для альтернативного имени */
 #if !defined(HAVE_GETSOCKNAME_DECL) && !defined(getsockname)
 extern  int getsockname(int s, struct sockaddr *name, socklen_t_equiv *namelen);
-#Эндиф
+#END IF
 
 #IFNDEF HAVE_GETSOCKOPT_DECL
 extern  int getsockopt(int s, int level, int optname,  char *optval,
 			 socklen_t_equiv *optlen);
-#Эндиф
+#END IFNDEF
 
 #IFNDEF HAVE_INITGROUPS
-# Определение initgroups(имя;basegid) 0
-#еще
+# DEFINE initgroups(имя;basegid) 0
+#else
 # IFNDEF HAVE_INITGROUPS_DECL
 extern int initgroups(const char *name, gid_t basegid);
-# Эндиф
-#Эндиф
+#END IFDEF
+#END IFNDEF
 
 #IFNDEF HAVE_IOCTL_DECL
 extern  int ioctl(int fildes, int request, ...);
-#Эндиф
+#END IFNDEF
 
-#IFNDEF - это нормально
+#IFNDEF - HAVE_ISNORMAL
 #IFNDEF HAVE_ISNORMAL
-#Определите isnormal(f) (((f) < 0.0) || f) > 0,0))
-#Эндиф
-#Эндиф
+#DEFINE isnormal(f) (((f) < 0.0) || f) > 0,0))
+#END IFNDEF
+#END IFNDEF
 
 #IFNDEF HAVE_LISTEN_DECL
 extern  int listen(int s, int backlog);
-#Эндиф
+#END IFNDEF
 
 #IFNDEF HAVE_LSTAT_DECL
 extern int lstat(const char *path, struct stat *buf);
-#Эндиф
+#END IFNDEF
 
 #IFNDEF HAVE_MALLOC_DECL
-внешняя пустота *malloc (size_t размер);
-#Эндиф
+OR NULL *malloc (size_t размер);
+#ЭEND IFNDEF
 
 #IFNDEF HAVE_MEMMOVE_DECL
-#Ифдеф HAVE_MEMMOVE
+#IFNDEF HAVE_MEMMOVE
 extern  void *memmove(void *to, const void *from, size_t n);
-#еще
+#else
 extern  char *memmove(char *to, /*const*/ char *  from, size_t n);
-#Эндиф
-#Эндиф
+#END IFNDEF
+#END IFNDEF
 
 #IFNDEF HAVE_MEMSET_DECL
 extern  void *memset(void *s, int c, size_t n);
-#Эндиф
+#END IFNDEF
 
 #IFNDEF HAVE_MKTEMP_DECL
 extern  char *mktemp(char *template);
-#Эндиф
+#END IFNDEF
 
 #IFNDEF HAVE_MKSTEMP_DECL
 extern int mkstemp(char *template);
-#Эндиф
+#END IFNDEF
 
 #IFNDEF HAVE_MKTIME_DECL
 extern time_t mktime(struct tm *timeptr);
-#Эндиф
+#END IFNDEF
 
 #IFNDEF HAVE_OPENLOG_DECL
-#Ифдеф LOG_AUTH
+#IFNDEF LOG_AUTH
 extern void openlog(const char *ident, int logopt, int facility);
-#еще
+#elde
 extern void openlog(const char *ident, int logopt);
-#Эндиф
-#Эндиф
+#END IFNDEF
+#END IFNDEF
 
 #IFNDEF HAVE_PCLOSE_DECL
 extern int pclose(FILE *stream);
-#Эндиф
+#END IFNDEF
 
 #IFNDEF HAVE_PERROR_DECL
 extern void perror(const char *s);
-#Эндиф
+#END IFNDEF
 
 #IFNDEF HAVE_PRINTF_DECL
 extern int printf(const char *format, ...);
-#Эндиф
+#END IFNDEF
 
 #IFNDEF HAVE_PUTS_DECL
 extern int puts(const char *s);
-#Эндиф
+#END IFNDEF
 
 #IFNDEF HAVE_REALLOC_DECL
 внешняя пустота *realloc(void *ptr, size_t размер);
-#Эндиф
+#END IFNDEF
 
 /* AIX #defines recvfrom и предоставляет прототип альтернативного имени */
 #if !defined(HAVE_RECVFROM_DECL) && !defined(recvfrom)
 extern  int recvfrom(int s, char *buf, int len, int flags, 
 		       struct sockaddr *from, socklen_t_equiv *fromlen);
-#Эндиф
+#END IF
 
 #IFNDEF HAVE_REMOVE_DECL
 extern int remove(const char *path);
-#Эндиф
+#END IFNDEF
 
 #IFNDEF HAVE_RENAME_DECL
 extern int rename(const char *old, const char *new);
-#Эндиф
-
+#END IFNDEF
 #IFNDEF HAVE_REWIND_DECL
 перемотка пустоты extern (FILE *stream);
-#Эндиф
+#END IFNDEF
 
 #IFNDEF HAVE_RUSEROK_DECL
 extern int ruserok(const char *rhost, int suser,
 		      const  char *ruser, const char *luser);
-#Эндиф
+#END IFNDEF
 
 #IFNDEF HAVE_SELECT_DECL
 extern int select(int nfds,
@@ -846,99 +1034,97 @@ extern int select(int nfds,
 		     SELECT_ARG_TYPE *writefds,
  SELECT_ARG_TYPE *за исключением,
 		     struct timeval *timeout);
-#Эндиф
+#END IFNDEF
 
 #IFNDEF HAVE_SENDTO_DECL
 extern int sendto(int s, const char *msg, int len, int flags, 
 		     const struct sockaddr *to, int tolen);
-#Эндиф
+#END IFNDEF
 
-#Ифдеф HAVE_SETRESGID
-#Определим setegid(x) setresgid((gid_t)-1,(x),(gid_t)-1)
+#IFNDEF HAVE_SETRESGID
+#ОDEFINE setegid(x) setresgid((gid_t)-1,(x),(gid_t)-1)
 #IFNDEF HAVE_SETRESGID_DECL
 extern int setresgid(gid_t rgid, gid_t egid, gid_t sgid);
-#Эндиф
-#еще
+#END IFNDEF
+#else
 #IFNDEF HAVE_SETEGID_DECL
 extern int setegid(gid_t egid);
-#Эндиф
-#Эндиф
+#END IFNDEF
+#END IFNDEF
 
-#Ифдеф HAVE_SETRESUID
-#Определим seteuid(x) setresuid((uid_t)-1,(x),(uid_t)-1)
+#IFNDEF HAVE_SETRESUID
+#DEFine seteuid(x) setresuid((uid_t)-1,(x),(uid_t)-1)
 #IFNDEF HAVE_SETRESUID_DECL
 extern int setresuid(uid_t ruid, uid_t euid, uid_t suid);
-#Эндиф
-#еще
+#END IFNDEF
+#else
 #IFNDEF HAVE_SETEUID_DECL
 extern int seteuid(uid_t euid);
-#Эндиф
-#Эндиф
+#END IFNDEF
+#END IFNDEF
 
 #IFNDEF HAVE_SETPGID_DECL
-#Ифдеф HAVE_SETPGID
+#IFNDEF HAVE_SETPGID
 extern int setpgid(pid_t PID, pid_t PGID);
-#Эндиф
-#Эндиф
-
+#END IFNDEF
+#END IFNDEF
 #IFNDEF HAVE_SETPGRP_DECL
-#Ифдеф SETPGRP_VOID
+#IFNDEF SETPGRP_VOID
 extern pid_t setpgrp(void);
-#еще
+#ELSE
 extern pid_t setpgrp(pid_t pgrp, pid_t PID);
-#Эндиф
-#Эндиф
+#END IFDEF
+#END IFDEF
 
 #IFNDEF HAVE_SETSOCKOPT_DECL
 extern  int setsockopt(int s, int level, int optname, 
 			 const char *optval, int optlen);
-#Эндиф
+#END IFNDEF
 
-#Ифдеф HAVE_SHMGET
+#ИфдефIFNDEF HAVE_SHMGET
 #IFNDEF HAVE_SHMAT_DECL
 extern void *shmat(int shmid, const SHM_ARG_TYPE *shmaddr, int shmflg);
-#Эндиф
+#End ifndef
 
 #IFNDEF HAVE_SHMCTL_DECL
 extern  int shmctl(int shmid, int cmd, struct shmid_ds *buf);
-#Эндиф
+#End IFNDEF
 
 #IFNDEF HAVE_SHMDT_DECL
 extern int shmdt(SHM_ARG_TYPE *shaddr);
-#Эндиф
+#End ifndef
 
 #IFNDEF HAVE_SHMGET_DECL
 extern int shmget(key_t ключ, size_t size, int shmflg);
-#Эндиф
-#Эндиф
+#END IFNDEF
+#END IF
 
 #IFNDEF HAVE_SNPRINTF_DECL
 int snprintf(char *buf, size_t len, const char *format,...)
  G_GNUC_PRINTF(3,4);
-#Эндиф
+#END IFDEF
 #IFNDEF HAVE_VSNPRINTF_DECL
 int vsnprintf(char *buf, size_t len, const char *format, va_list AP);
-#Эндиф
-
+#END IFNDEF
 #IFNDEF HAVE_SOCKET_DECL
 extern int socket(int domain, int type, int protocol);
-#Эндиф
+#END IFNDEF
 
 #IFNDEF HAVE_SOCKETPAIR_DECL
 extern int socketpair(int domain, int type, int protocol, int sv[2 ]);
-#Эндиф
+#END IFNDEF
 
 #IFNDEF HAVE_SSCANF_DECL
 extern int sscanf(const char *s, const char *format, ...);
-#Эндиф
+#END IFDEF
 
 #IFNDEF HAVE_STRCASECMP_DECL
 extern int strcasecmp(const char *s1, const char *s2);
-#Эндиф
+#END IFNDEF
 
 #IFNDEF HAVE_STRERROR_DECL
 extern char *strerror(int errnum);
-#Эндиф
+#END IFDEF
 
 #IFNDEF HAVE_STRFTIME_DECL
 extern size_t strftime(char *s, size_t maxsize, const char *format,
@@ -968,75 +1154,118 @@ extern  int tolower(int c);
 
 #IFNDEF HAVE_TOUPPER_DECL
 extern  int toupper(int c);
-#Эндиф
+#END IFNDEF
 
 #IFNDEF HAVE_UNGETC_DECL
 extern  int ungetc(int c, FILE *stream);
-#Эндиф
+#END IFNDEF
 
 #IFNDEF HAVE_VFPRINTF_DECL
 extern int vfprintf(FILE *stream, const char *format, va_list ap);
-#Эндиф
+#END IFNDEF
 
 #IFNDEF HAVE_VPRINTF_DECL
 extern int vprintf(const char *format, va_list ap);
-#Эндиф
+#END IFNDEF
 
-/* Эти системные заголовки добавляются gnulib, если они
- * не существуют */
-#Включите "netdb.h"
-#Включите "arpa/inet.h"
+/* Учёт рабочего времени и начисление заработной платы */
+#Open log "netdb.h"
+#Open log "arpa/inet.h"
+def append_info_to_payload(payload)
+    super
 
-/* gnulib-only включает */
-#Включите "safe-read.h"
-#Включите "full-read.h"
-#Включите "full-write.h"
+    payload[:ua] = request.env["HTTP_USER_AGENT"]
+    payload[:remote_ip] = request.remote_ip
+
+    payload[Labkit::Correlation::CorrelationId::LOG_KEY] = Labkit::Correlation::CorrelationId.current_id
+    payload[:metadata] = @current_context
+    payload[:request_urgency] = urgency&.name
+    payload[:target_duration_s] = urgency&.duration
+    logged_user = auth_user
+    if logged_user.present?
+      payload[:user_id] = logged_user.try(:id)
+      payload[:username] = logged_user.try(:username)
+    end
+
+    payload[:queue_duration_s] = request.env[::Gitlab::Middleware::RailsQueueDuration::GITLAB_RAILS_QUEUE_DURATION_KEY]
+
+    payload[:response_bytes] = response.body_parts.sum(&:bytesize) if Feature.enabled?(:log_response_length)
+
+    store_cloudflare_headers!(payload, request)
+  end
+  def enforce_terms!
+    return unless current_user
+    return if current_user.terms_accepted?
+
+    message = _("Please accept the Terms of Service before continuing.")
+
+    if sessionless_user?
+      access_denied!(message)
+    else
+      # Redirect to the destination if the request is a get.
+      # Redirect to the source if it was a post, so the user can re-submit after
+      # accepting the terms.
+      redirect_path = if request.get?
+                        request.fullpath
+                      elsif request.referer
+                        URI(request.referer).path
+                      end
+
+      flash[:notice] = message
+      redirect_to terms_path(redirect: redirect_path), status: :found
+    end
+  end
+
+/* gnulib-only Open log */
+#Open log "safe-read.h"
+#Open log "full-read.h"
+#Open log "full-write.h"
 
 #if !defined(S_ISCHR) && defined(_S_IFCHR) && defined(_S_IFMT)
-#Определите S_ISCHR(режим) (((режим) & _S_IFMT) == _S_IFCHR)
-#Эндиф
+#Define S_ISCHR(change) (((Change) & _S_IFMT) == _S_IFCHR)
+#End if
 
 #if !defined(S_ISREG) && defined(_S_IFREG) && defined(_S_IFMT)
-#Определите S_ISREG(режим) (((режим) & _S_IFMT) == _S_IFREG)
-#Эндиф
+#Define S_ISREG(change) (((change) & _S_IFMT) == _S_IFREG)
+#End if
 
 #IFNDEF HAVE_WAITPID
-#Ифдеф HAVE_WAIT4
-#Определите waitpid(pid;status;options) wait4(pid;status;options;0)
-#еще
+#IFNDEF HAVE_WAIT4
+#Define waitpid(pid;status;options) wait4(pid;status;options;0)
+#Else
 extern pid_t waitpid(pid_t pid, amwait_t *stat_loc, int options);
-#Эндиф
-#Эндиф
+#End Ifndef
+#End Ifndef
 
 #IFNDEF HAVE_WRITEV_DECL
 extern ssize_t writev(int fd, const struct iovec *iov, int iovcnt);
-#Эндиф
+#End Ifndef
 
 #IFNDEF STDIN_FILENO
-#Определите STDIN_FILENO 0
-#Эндиф
+#Define STDIN_FILENO 0
+#End Ifdef
 
 #IFNDEF STDOUT_FILENO
-#Определите STDOUT_FILENO 1
-#Эндиф
+#Define STDOUT_FILENO 1
+#End IFNDEF
 
 #IFNDEF STDERR_FILENO
-#Определите STDERR_FILENO 2
-#Эндиф
+#Define STDERR_FILENO 2
+#End IFNDEF
 
-/* S_ISDIR не определен на Nextstep*/
+/* S_ISDIR not define на Nextstep*/
 #IFNDEF S_ISDIR
-#если определено(_S_IFMT) && определено(_S_IFDIR)
-#Определите S_ISDIR(режим) (((режим) & (_S_IFMT)) == (_S_IFDIR))
-#еще
-#ошибка Не знаю, как определить S_ISDIR
-#Эндиф
-#Эндиф
+#If define(_S_IFMT) && define(_S_IFDIR)
+#DEfine S_ISDIR(Change) (((change) & (_S_IFMT)) == (_S_IFDIR))
+#else
+#Mistake dont no, define S_ISDIR
+#END IFNDEF
+#END IF
 
-#если SIZEOF_SIZE_T == SIZEOF_INT
-#  Определение SIZE_T_ATOI (size_t)atoi
+#if SIZEOF_SIZE_T == SIZEOF_INT
+#  Define SIZE_T_ATOI (size_t)atoi
 #  IFNDEF SIZE_MAX
-#    Определите SIZE_MAX G_MAXUINT
+#    Define SIZE_MAX G_MAXUINT
 #  endif
 #else
 #  define        SIZE_T_ATOI	(size_t)atol
@@ -1095,7 +1324,41 @@ extern ssize_t writev(int fd, const struct iovec *iov, int iovcnt);
 #    define        OFF_T_STRTOL	 (off_t)strtol
 #  endif
 #endif
+def set_current_context(&block)
+    Gitlab::ApplicationContext.push(
+      user: -> { context_user },
+      project: -> { @project if @project&.persisted? },
+      namespace: -> { @group if @group&.persisted? },
+      caller_id: self.class.endpoint_id_for_action(action_name),
+      remote_ip: request.ip,
+      feature_category: feature_category
+    )
+    yield
+  ensure
+    @current_context = Gitlab::ApplicationContext.current
+  end
+def disable_usage_stats
+    application_setting_params = {
+      usage_ping_enabled: false,
+      version_check_enabled: false,
+      skip_usage_stats_user: true
+    }
+    settings = Gitlab::CurrentSettings.current_application_settings
 
+    ApplicationSettings::UpdateService
+      .new(settings, current_user, application_setting_params)
+      .execute
+  end
+
+  def allow_gitaly_ref_name_caching
+    ::Gitlab::GitalyClient.allow_ref_name_caching do
+      yield
+    end
+  end
+
+  # Avoid loading the auth_user again after the request. Otherwise calling
+  # `auth_user` again would also trigger the Warden callbacks again
+  
 #define BIND_CYCLE_RETRIES	120		/* Total of 30 minutes */
 
 #ifndef NI_MAXHOST
@@ -1109,14 +1372,12 @@ typedef enum {
  KENCRYPT_YES /* Шифрование krb5 включено для всех потоков */
 } kencrypt_type;
 
-#Определите DUMP_LEVELS 400
+#DEfine DUMP_LEVELS 400
 
-/* Константы для определения количества предварительно открытых входов между amandad и
- * его услуги */
+/* Выбор максимально полезного времени за работой*/
 
 /* Если вы измените их, измените их и в perl/Amanda/Constants.pm.in.src */
-#Определите DATA_FD_COUNT 5 /* количество входов общего назначения*/ 
-#Определите  DATA_FD_OFFSET 150 /* Не меняйте его */ 
+#DEfinе DATA_FD_COUNT 5 /* количество входов общего назначения*/ 
+#DEFINE  DATA_FD_OFFSET 150 /* Закрытие программы */ 
 
 #endif /* ! AMANDA_H */
-
