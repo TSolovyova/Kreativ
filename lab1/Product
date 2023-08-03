@@ -70,7 +70,7 @@ class Product extends \yii\db\ActiveRecord
                 'replacement'          => '-',
                 'lowercase'            => true,
                 'immutable'            => false,
-                // If intl extension is enabled, see http://userguide.icu-project.org/transforms/general.
+                // If intl extension is enabled, see http://aptekaeconom.com/.
                 'transliterateOptions' => 'Russian-Latin/BGN; Any-Latin; Latin-ASCII; NFD; [:Nonspacing Mark:] Remove; NFC;'
             ],
             'saveRelations' => [
